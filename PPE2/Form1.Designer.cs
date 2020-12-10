@@ -36,13 +36,14 @@ namespace PPE2
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxConnection = new System.Windows.Forms.GroupBox();
             this.groupBoxInscription = new System.Windows.Forms.GroupBox();
+            this.textBoxInscriptionValiderMDP = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxInscriptionUser = new System.Windows.Forms.TextBox();
             this.btInscription = new System.Windows.Forms.Button();
             this.textBoxInscriptionMDP = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxInscriptionValiderMDP = new System.Windows.Forms.TextBox();
+            this.btQuitter = new System.Windows.Forms.Button();
             this.groupBoxConnection.SuspendLayout();
             this.groupBoxInscription.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +63,7 @@ namespace PPE2
             this.btValiderConnection.TabIndex = 1;
             this.btValiderConnection.Text = "Connection";
             this.btValiderConnection.UseVisualStyleBackColor = true;
+            this.btValiderConnection.Click += new System.EventHandler(this.btValiderConnection_Click);
             // 
             // textBoxConnectionMDP
             // 
@@ -113,10 +115,26 @@ namespace PPE2
             this.groupBoxInscription.Controls.Add(this.textBoxInscriptionMDP);
             this.groupBoxInscription.Location = new System.Drawing.Point(265, 12);
             this.groupBoxInscription.Name = "groupBoxInscription";
-            this.groupBoxInscription.Size = new System.Drawing.Size(326, 294);
+            this.groupBoxInscription.Size = new System.Drawing.Size(286, 294);
             this.groupBoxInscription.TabIndex = 6;
             this.groupBoxInscription.TabStop = false;
             this.groupBoxInscription.Text = "Inscription";
+            // 
+            // textBoxInscriptionValiderMDP
+            // 
+            this.textBoxInscriptionValiderMDP.Location = new System.Drawing.Point(157, 144);
+            this.textBoxInscriptionValiderMDP.Name = "textBoxInscriptionValiderMDP";
+            this.textBoxInscriptionValiderMDP.Size = new System.Drawing.Size(100, 20);
+            this.textBoxInscriptionValiderMDP.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(0, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Valider le Mot de Passe :";
             // 
             // label3
             // 
@@ -160,27 +178,22 @@ namespace PPE2
             this.textBoxInscriptionMDP.Size = new System.Drawing.Size(100, 20);
             this.textBoxInscriptionMDP.TabIndex = 7;
             // 
-            // label5
+            // btQuitter
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(0, 144);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Valider le Mot de Passe :";
-            // 
-            // textBoxInscriptionValiderMDP
-            // 
-            this.textBoxInscriptionValiderMDP.Location = new System.Drawing.Point(157, 144);
-            this.textBoxInscriptionValiderMDP.Name = "textBoxInscriptionValiderMDP";
-            this.textBoxInscriptionValiderMDP.Size = new System.Drawing.Size(100, 20);
-            this.textBoxInscriptionValiderMDP.TabIndex = 11;
+            this.btQuitter.Location = new System.Drawing.Point(476, 312);
+            this.btQuitter.Name = "btQuitter";
+            this.btQuitter.Size = new System.Drawing.Size(75, 23);
+            this.btQuitter.TabIndex = 12;
+            this.btQuitter.Text = "Quitter";
+            this.btQuitter.UseVisualStyleBackColor = true;
+            this.btQuitter.Click += new System.EventHandler(this.btQuitter_Click);
             // 
             // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 450);
+            this.ClientSize = new System.Drawing.Size(572, 344);
+            this.Controls.Add(this.btQuitter);
             this.Controls.Add(this.groupBoxInscription);
             this.Controls.Add(this.groupBoxConnection);
             this.Name = "Accueil";
@@ -209,6 +222,7 @@ namespace PPE2
         private System.Windows.Forms.TextBox textBoxInscriptionUser;
         private System.Windows.Forms.Button btInscription;
         private System.Windows.Forms.TextBox textBoxInscriptionMDP;
+        private System.Windows.Forms.Button btQuitter;
     }
 }
 

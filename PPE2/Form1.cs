@@ -15,6 +15,7 @@ namespace PPE2
         public Accueil()
         {
             InitializeComponent();
+            Connection.connexion();
         }
 
         private void btInscription_Click(object sender, EventArgs e)
@@ -30,13 +31,38 @@ namespace PPE2
 
             if(mdp == mdpConfirm && mdp != "" && mdpConfirm != "")
             {
-                //Connection à la base de données et test la connection à l'utilisateur !
+                //Inscription à la base de données      
+                Connection.ajouterUser(user, mdp);
             }
             else if(mdp != "" && mdpConfirm != "")
             {
                 MessageBox.Show("Vos 2 mots de passes ne correspondent pas");
             }
                 
+        }
+
+        private void btValiderConnection_Click(object sender, EventArgs e)
+        {
+            string user = textBoxConnectionUser.Text;
+            string mdp = textBoxConnectionMDP.Text;
+
+            if (Connection.testerConnection(user, mdp) == 1)
+            {
+                AccueilUser ac = new AccueilUser();
+                ac.Show();
+                this.Hide();
+
+            }
+
+            else
+            {
+                MessageBox.Show("La connection n'a pas été aboutit");
+            }
+        }
+
+        private void btQuitter_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
