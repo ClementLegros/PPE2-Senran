@@ -34,7 +34,7 @@ namespace PPE2
         public static bool ajouterUser(string user , string mdp)
         {
             MySqlCommand cmd = conn.CreateCommand();
-            string reqI = "INSERT INTO JOUEUR VALUES('" + 3 + "','" + user + "','" + mdp + "')";
+            string reqI = "INSERT INTO JOUEUR VALUES('" + 4 + "','" + user + "','" + mdp + "')";
             cmd.CommandText = reqI;
             int nbMaj = cmd.ExecuteNonQuery();
             return (nbMaj == 1);
