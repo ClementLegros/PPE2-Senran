@@ -98,6 +98,7 @@
     <Compile Include="AccueilUser.Designer.cs">
       <DependentUpon>AccueilUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="collection.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="BaseAccueil.cs">
       <SubType>Form</SubType>
@@ -105,6 +106,7 @@
     <Compile Include="BaseAccueil.Designer.cs">
       <DependentUpon>BaseAccueil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Personnage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AccueilUser.resx">

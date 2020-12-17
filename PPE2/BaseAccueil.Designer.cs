@@ -69,6 +69,7 @@ namespace PPE2
             // 
             this.textBoxConnectionMDP.Location = new System.Drawing.Point(102, 91);
             this.textBoxConnectionMDP.Name = "textBoxConnectionMDP";
+            this.textBoxConnectionMDP.PasswordChar = '*';
             this.textBoxConnectionMDP.Size = new System.Drawing.Size(100, 20);
             this.textBoxConnectionMDP.TabIndex = 2;
             // 
@@ -99,7 +100,7 @@ namespace PPE2
             this.groupBoxConnection.Controls.Add(this.textBoxConnectionMDP);
             this.groupBoxConnection.Location = new System.Drawing.Point(12, 12);
             this.groupBoxConnection.Name = "groupBoxConnection";
-            this.groupBoxConnection.Size = new System.Drawing.Size(247, 294);
+            this.groupBoxConnection.Size = new System.Drawing.Size(247, 232);
             this.groupBoxConnection.TabIndex = 5;
             this.groupBoxConnection.TabStop = false;
             this.groupBoxConnection.Text = "Connection";
@@ -115,7 +116,7 @@ namespace PPE2
             this.groupBoxInscription.Controls.Add(this.textBoxInscriptionMDP);
             this.groupBoxInscription.Location = new System.Drawing.Point(265, 12);
             this.groupBoxInscription.Name = "groupBoxInscription";
-            this.groupBoxInscription.Size = new System.Drawing.Size(286, 294);
+            this.groupBoxInscription.Size = new System.Drawing.Size(286, 232);
             this.groupBoxInscription.TabIndex = 6;
             this.groupBoxInscription.TabStop = false;
             this.groupBoxInscription.Text = "Inscription";
@@ -124,13 +125,14 @@ namespace PPE2
             // 
             this.textBoxInscriptionValiderMDP.Location = new System.Drawing.Point(157, 144);
             this.textBoxInscriptionValiderMDP.Name = "textBoxInscriptionValiderMDP";
+            this.textBoxInscriptionValiderMDP.PasswordChar = '*';
             this.textBoxInscriptionValiderMDP.Size = new System.Drawing.Size(100, 20);
             this.textBoxInscriptionValiderMDP.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(0, 144);
+            this.label5.Location = new System.Drawing.Point(6, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(124, 13);
             this.label5.TabIndex = 10;
@@ -167,7 +169,7 @@ namespace PPE2
             this.btInscription.Name = "btInscription";
             this.btInscription.Size = new System.Drawing.Size(100, 23);
             this.btInscription.TabIndex = 6;
-            this.btInscription.Text = "Connection";
+            this.btInscription.Text = "Valider";
             this.btInscription.UseVisualStyleBackColor = true;
             this.btInscription.Click += new System.EventHandler(this.btInscription_Click);
             // 
@@ -175,12 +177,13 @@ namespace PPE2
             // 
             this.textBoxInscriptionMDP.Location = new System.Drawing.Point(157, 91);
             this.textBoxInscriptionMDP.Name = "textBoxInscriptionMDP";
+            this.textBoxInscriptionMDP.PasswordChar = '*';
             this.textBoxInscriptionMDP.Size = new System.Drawing.Size(100, 20);
             this.textBoxInscriptionMDP.TabIndex = 7;
             // 
             // btQuitter
             // 
-            this.btQuitter.Location = new System.Drawing.Point(476, 312);
+            this.btQuitter.Location = new System.Drawing.Point(476, 250);
             this.btQuitter.Name = "btQuitter";
             this.btQuitter.Size = new System.Drawing.Size(75, 23);
             this.btQuitter.TabIndex = 12;
@@ -192,7 +195,7 @@ namespace PPE2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 344);
+            this.ClientSize = new System.Drawing.Size(572, 285);
             this.Controls.Add(this.btQuitter);
             this.Controls.Add(this.groupBoxInscription);
             this.Controls.Add(this.groupBoxConnection);

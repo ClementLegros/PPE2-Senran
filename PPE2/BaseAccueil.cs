@@ -12,6 +12,7 @@ namespace PPE2
 {
     public partial class Accueil : Form
     {
+       
         public Accueil()
         {
             InitializeComponent();
@@ -45,13 +46,14 @@ namespace PPE2
         {
             string user = textBoxConnectionUser.Text;
             string mdp = textBoxConnectionMDP.Text;
-
+ 
             if (Connection.testerConnection(user, mdp) == 1)
             {
                 AccueilUser ac = new AccueilUser();
+                ac.idUser = Connection.getIdUser(user,mdp);
+                MessageBox.Show(Convert.ToString(ac.idUser));
                 ac.Show();
                 this.Hide();
-
             }
 
             else

@@ -31,6 +31,58 @@ namespace PPE2
             return c;
         }
 
+        public static int getIdUser(string user, string mdp)
+        {
+            MySqlCommand cmd = conn.CreateCommand();
+            string reqI = "SELECT NO_JOUEUR FROM JOUEUR WHERE USER = '" + user + "' AND PASSWORD = '" + mdp + "'";
+            cmd.CommandText = reqI;
+            int noId = Convert.ToInt32(cmd.ExecuteScalar());
+            return noId;   
+        }
+        //Ajoute un personnage dans la collection de l'utilisateur
+        public static int ajouterPersonnageToUser(Personnage p)
+        {
+            string nomPersonnage = p.getNomCarte();
+           
+            return 0;
+        }
+
+        //Récupère toute les Cartes du jeux sans exception (tant qu'elle sont complète)
+        public static List<Personnage> getToutLesPersonnages()
+        {
+            List<Personnage> listPersonnage = new List<Personnage>();
+            MySqlCommand cmd = conn.CreateCommand();
+            String reqI = "SELECT * FROM AFFICHERINFOCARTE";
+            cmd.CommandText = reqI;
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                Personnage personnageRecup = new Personnage((string)rdr["NOM_CARTE"],(string)rdr["NOM_ECOLE"],(string)rdr["EFFECT_LEADER_CARTE"],(string)rdr["COULEUR"]);
+                listPersonnage.Add(personnageRecup);
+            }
+            rdr.Close();
+            return listPersonnage;
+
+        }
+
+        public static List<Personnage> getPersonnageDeUser(int idUser)
+        {
+            List<Personnage> listPersonnageDeUser = new List<Personnage>();
+            MySqlCommand cmd = conn.CreateCommand();
+            String reqI = "CALL GetPersoDeUser('"+idUser+"')";
+            cmd.CommandText = reqI;
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                Personnage personnageRecup = new Personnage((string)rdr["NOM_CARTE"], (string)rdr["NOM_ECOLE"], (string)rdr["EFFECT_LEADER_CARTE"], (string)rdr["COULEUR"]);
+                listPersonnageDeUser.Add(personnageRecup);
+            }
+            rdr.Close();
+            return listPersonnageDeUser;
+
+        }
+
+        //Ajout d'utilisateur à la bdd
         public static bool ajouterUser(string user , string mdp)
         {
             MySqlCommand cmd = conn.CreateCommand();
