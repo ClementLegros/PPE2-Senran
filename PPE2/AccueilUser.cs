@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace PPE2
 {
     public partial class AccueilUser : Form
@@ -15,6 +17,7 @@ namespace PPE2
         List<Personnage> listPersonnageBDD;
         collection collectionDeUser;
         public int idUser;
+
         public AccueilUser()
         {
             InitializeComponent();
@@ -26,10 +29,10 @@ namespace PPE2
             collectionDeUser = new collection(Connection.getPersonnageDeUser(idUser), idUser);
             listPersonnageBDD = Connection.getToutLesPersonnages();
 
+            
+            
             listBoxPersoPossedeParUser.Items.AddRange(collectionDeUser.getListCollectionPersonnage().ToArray());
             listBoxPersoBDD.Items.AddRange(listPersonnageBDD.ToArray());
-
-            pictureBoxPersonnage.ImageLocation = "https://i.imgur.com/uPQzOvo.png";
         }
 
 
@@ -75,7 +78,59 @@ namespace PPE2
 
         private void btAjouterPersoToUserCollection_Click(object sender, EventArgs e)
         {
+            Personnage perso = (Personnage)listBoxPersoBDD.SelectedItem;
+            Connection.ajouterPersonnageToUser(perso, idUser);
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btAutoTeam_Click(object sender, EventArgs e)
+        {
+            string conditionPrincipalType = (string)listBoxConditionPrincipaleType.SelectedItem;
+            string conditionPrincipaleCouleur = (string)listBoxConditionPrincipaleCouleur.SelectedItem;
+
+            string conditionSecondaireType = (string)listBoxConditionSecondaireType.SelectedItem;
+            string conditionSecondaireCouleur = (string)listBoxConditionSecondaireCouleur.SelectedItem;
             
+            List<Personnage> listPersoResult = Connection.getListPersoForTeam(conditionPrincipalType, conditionSecondaireCouleur, conditionSecondaireType, conditionSecondaireCouleur, "PVP_RATING");
+            pictureBox0LogoCarte.Load(listPersoResult[0].getLienImageLogo());
+            pictureBox1LogoCarte.Load(listPersoResult[1].getLienImageLogo());
+            pictureBox2LogoCarte.Load(listPersoResult[2].getLienImageLogo());
+            pictureBox3LogoCarte.Load(listPersoResult[3].getLienImageLogo());
+            pictureBox4LogoCarte.Load(listPersoResult[4].getLienImageLogo());
+
+
+
+
+
+
+        }
+
+        private void buttonValiderDetailPersonnage_Click(object sender, EventArgs e)
+        {
+            Personnage persoRecup = (Personnage)listBoxPersoBDD.SelectedItem;
+            if(checkBoxDetailCarteBDD.Checked == true && checkBoxDetailPersoBox.Checked == false)
+            {
+                DetailCarte d1 = new DetailCarte();
+                d1.nom = persoRecup.getNomCarte();
+                d1.ecole = persoRecup.getEcole();
+                d1.aptLeader = persoRecup.getAptLeader();
+                d1.aptPassif = persoRecup.getAptPassif();
+                d1.couleur = persoRecup.getCouleur();
+                d1.type = persoRecup.getType();
+                d1.invasionRating = persoRecup.getInvasionRating();
+                d1.pvpRating = persoRecup.getPvpRating();
+                d1.nestRating = persoRecup.getNestRating();
+                d1.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Les critères ont mal été remplis ");
+            }
         }
     }
 }

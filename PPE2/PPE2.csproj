@@ -98,6 +98,12 @@
     <Compile Include="AccueilUser.Designer.cs">
       <DependentUpon>AccueilUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrateur.Designer.cs">
+      <DependentUpon>Administrateur.cs</DependentUpon>
+    </Compile>
     <Compile Include="collection.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="BaseAccueil.cs">
@@ -106,14 +112,26 @@
     <Compile Include="BaseAccueil.Designer.cs">
       <DependentUpon>BaseAccueil.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetailCarte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailCarte.Designer.cs">
+      <DependentUpon>DetailCarte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Personnage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AccueilUser.resx">
       <DependentUpon>AccueilUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrateur.resx">
+      <DependentUpon>Administrateur.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaseAccueil.resx">
       <DependentUpon>BaseAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailCarte.resx">
+      <DependentUpon>DetailCarte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

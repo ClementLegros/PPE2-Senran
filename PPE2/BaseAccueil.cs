@@ -34,6 +34,7 @@ namespace PPE2
             {
                 //Inscription à la base de données      
                 Connection.ajouterUser(user, mdp);
+                MessageBox.Show("L'enregistrement à été éféctuer avec succès");
             }
             else if(mdp != "" && mdpConfirm != "")
             {

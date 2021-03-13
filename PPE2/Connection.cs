@@ -13,9 +13,10 @@ namespace PPE2
         private static MySqlConnection conn = null;
 
         //Connection à la base de données
+
         public static bool connexion()
         {
-            string sConnexion = @"server=localhost;userid=root;password=root;database=senran";
+            string sConnexion = @"server=localhost;userid=root;password=root;database=PPE2Senran";
             conn = new MySqlConnection(sConnexion);
             conn.Open();
             return (conn.State == System.Data.ConnectionState.Open);
@@ -25,24 +26,27 @@ namespace PPE2
         public static int testerConnection(string user, string mdp)
         {
             MySqlCommand cmd = conn.CreateCommand();
-            string reqI = "SELECT COUNT(*) FROM JOUEUR WHERE USER = '"+ user +"' AND PASSWORD = '"+ mdp +"'";
+            string reqI = "SELECT COUNT(*) FROM UTILISATEUR WHERE USER = '"+ user +"' AND PASSWORD = '"+ mdp +"'";
             cmd.CommandText = reqI;
             int c = Convert.ToInt32(cmd.ExecuteScalar());
             return c;
         }
-
+        
         public static int getIdUser(string user, string mdp)
         {
             MySqlCommand cmd = conn.CreateCommand();
-            string reqI = "SELECT NO_JOUEUR FROM JOUEUR WHERE USER = '" + user + "' AND PASSWORD = '" + mdp + "'";
+            string reqI = "SELECT NO_UTILISATEUR FROM UTILISATEUR WHERE USER = '" + user + "' AND PASSWORD = '" + mdp + "'";
             cmd.CommandText = reqI;
             int noId = Convert.ToInt32(cmd.ExecuteScalar());
             return noId;   
         }
+
         //Ajoute un personnage dans la collection de l'utilisateur
-        public static int ajouterPersonnageToUser(Personnage p)
+        public static int ajouterPersonnageToUser(Personnage p, int idUser)
         {
-            string nomPersonnage = p.getNomCarte();
+            int numeroCarte = p.getNumeroCarte();
+            MySqlCommand cmd = conn.CreateCommand();
+            string reqI = "INSERT INTO Collection(NO_JOUEUR,NO_CARTE) WHERE NO_JOUEUR ='" + idUser + "' AND NO_CARTE = '" + numeroCarte + "'";
            
             return 0;
         }
@@ -52,12 +56,12 @@ namespace PPE2
         {
             List<Personnage> listPersonnage = new List<Personnage>();
             MySqlCommand cmd = conn.CreateCommand();
-            String reqI = "SELECT * FROM AFFICHERINFOCARTE";
+            String reqI = "SELECT * FROM getcartecomplete";
             cmd.CommandText = reqI;
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Personnage personnageRecup = new Personnage((string)rdr["NOM_CARTE"],(string)rdr["NOM_ECOLE"],(string)rdr["EFFECT_LEADER_CARTE"],(string)rdr["COULEUR"]);
+                Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],(string)rdr["NOM_CARTE"],(string)rdr["NOM_ECOLE"],(string)rdr["EFFET_LEADER"],(string)rdr["EFFET_PASSIF"],(string)rdr["COULEUR"],(string)rdr["TYPE"],(int)rdr["PVP_RATING"],(int)rdr["NEST_RATING"],(int)rdr["INVASION_RATING"]);
                 listPersonnage.Add(personnageRecup);
             }
             rdr.Close();
@@ -74,13 +78,14 @@ namespace PPE2
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Personnage personnageRecup = new Personnage((string)rdr["NOM_CARTE"], (string)rdr["NOM_ECOLE"], (string)rdr["EFFECT_LEADER_CARTE"], (string)rdr["COULEUR"]);
+                Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"], (string)rdr["NOM_CARTE"], (string)rdr["NOM_ECOLE"], (string)rdr["EFFET_LEADER"], (string)rdr["EFFET_PASSIF"], (string)rdr["COULEUR"], (string)rdr["TYPE"], (int)rdr["PVP_RATING"], (int)rdr["NEST_RATING"], (int)rdr["INVASION_RATING"]);
                 listPersonnageDeUser.Add(personnageRecup);
             }
             rdr.Close();
             return listPersonnageDeUser;
 
         }
+
 
         //Ajout d'utilisateur à la bdd
         public static bool ajouterUser(string user , string mdp)
@@ -91,7 +96,68 @@ namespace PPE2
             int nbMaj = cmd.ExecuteNonQuery();
             return (nbMaj == 1);
         }
-    }
 
+        //Récupérer la liste des personnages en fonction des ordres de tri
+        public static List<Personnage> getListPersoForTeam(string cdType1, string cdCouleur1, string cdType2,string cdCouleur2, string modeDeJeux)
+        {
+            List<Personnage> listPerso = new List<Personnage>();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            String reqI = "CALL GetTriCarte('"+ cdType1 +"', '"+cdCouleur1+"', '"+modeDeJeux+"', '"+cdType2+"', '"+cdCouleur2+"')";
+            cmd.CommandText = reqI;
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],
+                                                            (string)rdr["NOM_CARTE"],
+                                                            (string)rdr["EFFET_LEADER"],
+                                                            (string)rdr["EFFET_PASSIF"],
+                                                            (string)rdr["COULEUR"],
+                                                            (string)rdr["TYPE"],
+                                                            (int)rdr["PVP_RATING"],
+                                                            (int)rdr["NEST_RATING"],
+                                                            (int)rdr["INVASION_RATING"],
+                                                            (string)rdr["LienCarteImage"],
+                                                            (string)rdr["LienLogoImage"]);
+                listPerso.Add(personnageRecup);
+                
+            }
+            
+            rdr.NextResult();
+            if(rdr.HasRows)
+            {
+                while (rdr.Read())
+                {
+                    Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],
+                                                            (string)rdr["NOM_CARTE"],
+                                                            (string)rdr["EFFET_LEADER"],
+                                                            (string)rdr["EFFET_PASSIF"],
+                                                            (string)rdr["COULEUR"],
+                                                            (string)rdr["TYPE"],
+                                                            (int)rdr["PVP_RATING"],
+                                                            (int)rdr["NEST_RATING"],
+                                                            (int)rdr["INVASION_RATING"],
+                                                            (string)rdr["LienCarteImage"],
+                                                            (string)rdr["LienLogoImage"]);
+                    listPerso.Add(personnageRecup);
+
+                }
+            }
+            else
+            {
+                
+            }
+            
+
+
+            rdr.Close();
+            
+
+
+            return listPerso;
+        }
+        
+    }
+    
     
 }
