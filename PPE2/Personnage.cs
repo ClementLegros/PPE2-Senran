@@ -28,8 +28,12 @@ namespace PPE2
         private string urlImageCarte;
         private string urlImageLogo;
 
-
-   
+        public Personnage(int noCarte, string nomCarte,string urlImageLogo)
+        {
+            this.noCarte = noCarte;
+            this.nomCarte = nomCarte;
+            this.urlImageLogo = urlImageLogo;
+        }
 
         public Personnage(int noCarte,string nomCarte, string ecole, string aptLeader,string aptPassif,string couleur, string type,int pvpRating,int nestRating,int invasionRating)
         {

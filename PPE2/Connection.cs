@@ -110,15 +110,8 @@ namespace PPE2
             {
                 Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],
                                                             (string)rdr["NOM_CARTE"],
-                                                            (string)rdr["EFFET_LEADER"],
-                                                            (string)rdr["EFFET_PASSIF"],
-                                                            (string)rdr["COULEUR"],
-                                                            (string)rdr["TYPE"],
-                                                            (int)rdr["PVP_RATING"],
-                                                            (int)rdr["NEST_RATING"],
-                                                            (int)rdr["INVASION_RATING"],
-                                                            (string)rdr["LienCarteImage"],
                                                             (string)rdr["LienLogoImage"]);
+                                                            
                 listPerso.Add(personnageRecup);
                 
             }
@@ -130,30 +123,12 @@ namespace PPE2
                 {
                     Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],
                                                             (string)rdr["NOM_CARTE"],
-                                                            (string)rdr["EFFET_LEADER"],
-                                                            (string)rdr["EFFET_PASSIF"],
-                                                            (string)rdr["COULEUR"],
-                                                            (string)rdr["TYPE"],
-                                                            (int)rdr["PVP_RATING"],
-                                                            (int)rdr["NEST_RATING"],
-                                                            (int)rdr["INVASION_RATING"],
-                                                            (string)rdr["LienCarteImage"],
                                                             (string)rdr["LienLogoImage"]);
                     listPerso.Add(personnageRecup);
 
                 }
             }
-            else
-            {
-                
-            }
-            
-
-
             rdr.Close();
-            
-
-
             return listPerso;
         }
         

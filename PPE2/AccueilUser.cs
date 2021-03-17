@@ -96,11 +96,19 @@ namespace PPE2
             string conditionSecondaireCouleur = (string)listBoxConditionSecondaireCouleur.SelectedItem;
             
             List<Personnage> listPersoResult = Connection.getListPersoForTeam(conditionPrincipalType, conditionSecondaireCouleur, conditionSecondaireType, conditionSecondaireCouleur, "PVP_RATING");
-            pictureBox0LogoCarte.Load(listPersoResult[0].getLienImageLogo());
-            pictureBox1LogoCarte.Load(listPersoResult[1].getLienImageLogo());
-            pictureBox2LogoCarte.Load(listPersoResult[2].getLienImageLogo());
-            pictureBox3LogoCarte.Load(listPersoResult[3].getLienImageLogo());
-            pictureBox4LogoCarte.Load(listPersoResult[4].getLienImageLogo());
+            if (listPersoResult.Count == 4)
+            {
+                pictureBox0LogoCarte.Load(listPersoResult[0].getLienImageLogo());
+                pictureBox1LogoCarte.Load(listPersoResult[1].getLienImageLogo());
+                pictureBox2LogoCarte.Load(listPersoResult[2].getLienImageLogo());
+                pictureBox3LogoCarte.Load(listPersoResult[3].getLienImageLogo());
+                pictureBox4LogoCarte.Load(listPersoResult[4].getLienImageLogo());
+            }
+            else
+            {
+                MessageBox.Show("Vous n'avez pas assez de personnage pour faire une composition d'équipe ");
+            }
+            
 
 
 
