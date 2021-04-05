@@ -26,54 +26,23 @@ namespace PPE2
 
         private void AccueilUser_Load(object sender, EventArgs e)
         {
-            collectionDeUser = new collection(Connection.getPersonnageDeUser(idUser), idUser);
-            listPersonnageBDD = Connection.getToutLesPersonnages();
-
-            
-            
-            listBoxPersoPossedeParUser.Items.AddRange(collectionDeUser.getListCollectionPersonnage().ToArray());
-            listBoxPersoBDD.Items.AddRange(listPersonnageBDD.ToArray());
+            List<Personnage> personnageRecent = Connection.getToutLesPersonnagesSortitRecemment();
+            pictureBoxDernierPersoSorti1.Load(personnageRecent[0].getLienImageLogo());
+            pictureBoxDernierPersoSorti2.Load(personnageRecent[1].getLienImageLogo());
+            pictureBoxDernierPersoSorti3.Load(personnageRecent[2].getLienImageLogo());
+            pictureBoxDernierPersoSorti4.Load(personnageRecent[3].getLienImageLogo());
+            pictureBoxDernierPersoSorti5.Load(personnageRecent[4].getLienImageLogo());
+            pictureBoxDernierPersoSorti6.Load(personnageRecent[5].getLienImageLogo());
         }
 
 
-        private void btRecherchePerso_Click(object sender, EventArgs e)
-        {
-            string nomPersonnage = textBoxRecherchePersonnage.Text;
-            List<Personnage> listPerso = new List<Personnage>();
-
-            if (checkBoxVotreCollection.Checked)
-            {
-                //Rechercher dans la collection du joueur
-                foreach(Personnage p in collectionDeUser.getListCollectionPersonnage())
-                {
-                    if(p.getNomCarte() == nomPersonnage)
-                    {
-                        listPerso.Add(p);
-                    }
-                }
-
-                listBoxPersoPossedeParUser.Items.Clear();
-                listBoxPersoPossedeParUser.Items.AddRange(listPerso.ToArray());
-            }
-            if(checkBoxDansLaBDD.Checked)
-            {
-                //Rechercher dans la base de données
-                foreach(Personnage p in listPersonnageBDD)
-                {
-                    if(p.getNomCarte() == nomPersonnage)
-                    {
-                        listPerso.Add(p);
-                    }
-                }
-
-                listBoxPersoBDD.Items.Clear();
-                listBoxPersoBDD.Items.AddRange(listPerso.ToArray());
-            }
-        }
+        
 
         private void btMenuPersonnage_Click(object sender, EventArgs e)
         {
-
+            PersonnageDeUser pdu = new PersonnageDeUser();
+            pdu.noUser = idUser;
+            pdu.Show();
         }
 
         private void btAjouterPersoToUserCollection_Click(object sender, EventArgs e)
@@ -89,25 +58,27 @@ namespace PPE2
 
         private void btAutoTeam_Click(object sender, EventArgs e)
         {
-            string conditionPrincipalType = (string)listBoxConditionPrincipaleType.SelectedItem;
-            string conditionPrincipaleCouleur = (string)listBoxConditionPrincipaleCouleur.SelectedItem;
+            //string conditionPrincipalType = (string)listBoxConditionPrincipaleType.SelectedItem;
+            //string conditionPrincipaleCouleur = (string)listBoxConditionPrincipaleCouleur.SelectedItem;
 
-            string conditionSecondaireType = (string)listBoxConditionSecondaireType.SelectedItem;
-            string conditionSecondaireCouleur = (string)listBoxConditionSecondaireCouleur.SelectedItem;
+            //string conditionSecondaireType = (string)listBoxConditionSecondaireType.SelectedItem;
+            //string conditionSecondaireCouleur = (string)listBoxConditionSecondaireCouleur.SelectedItem;
             
-            List<Personnage> listPersoResult = Connection.getListPersoForTeam(conditionPrincipalType, conditionSecondaireCouleur, conditionSecondaireType, conditionSecondaireCouleur, "PVP_RATING");
-            if (listPersoResult.Count == 4)
-            {
-                pictureBox0LogoCarte.Load(listPersoResult[0].getLienImageLogo());
-                pictureBox1LogoCarte.Load(listPersoResult[1].getLienImageLogo());
-                pictureBox2LogoCarte.Load(listPersoResult[2].getLienImageLogo());
-                pictureBox3LogoCarte.Load(listPersoResult[3].getLienImageLogo());
-                pictureBox4LogoCarte.Load(listPersoResult[4].getLienImageLogo());
-            }
-            else
-            {
-                MessageBox.Show("Vous n'avez pas assez de personnage pour faire une composition d'équipe ");
-            }
+            //List<Personnage> listPersoResult = Connection.getListPersoForTeam(conditionPrincipalType, conditionSecondaireCouleur, conditionSecondaireType, conditionSecondaireCouleur, "PVP_RATING");
+            //if (listPersoResult.Count == 4)
+            //{
+            //    pictureBox0LogoCarte.Load(listPersoResult[0].getLienImageLogo());
+            //    pictureBox1LogoCarte.Load(listPersoResult[1].getLienImageLogo());
+            //    pictureBox2LogoCarte.Load(listPersoResult[2].getLienImageLogo());
+            //    pictureBox3LogoCarte.Load(listPersoResult[3].getLienImageLogo());
+            //    //pictureBox4LogoCarte.Load(listPersoResult[4].getLienImageLogo());
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Vous n'avez pas assez de personnage pour faire une composition d'équipe ");
+            //}
+
+            ////Faire un message d'alerte pour savoir si l'utilisateur veut enregistrer son équipe
             
 
 
@@ -119,26 +90,38 @@ namespace PPE2
 
         private void buttonValiderDetailPersonnage_Click(object sender, EventArgs e)
         {
-            Personnage persoRecup = (Personnage)listBoxPersoBDD.SelectedItem;
-            if(checkBoxDetailCarteBDD.Checked == true && checkBoxDetailPersoBox.Checked == false)
-            {
-                DetailCarte d1 = new DetailCarte();
-                d1.nom = persoRecup.getNomCarte();
-                d1.ecole = persoRecup.getEcole();
-                d1.aptLeader = persoRecup.getAptLeader();
-                d1.aptPassif = persoRecup.getAptPassif();
-                d1.couleur = persoRecup.getCouleur();
-                d1.type = persoRecup.getType();
-                d1.invasionRating = persoRecup.getInvasionRating();
-                d1.pvpRating = persoRecup.getPvpRating();
-                d1.nestRating = persoRecup.getNestRating();
-                d1.ShowDialog();
+            //Personnage persoRecup = (Personnage)listBoxPersoBDD.SelectedItem;
+            //if(checkBoxDetailCarteBDD.Checked == true && checkBoxDetailPersoBox.Checked == false)
+            //{
+            //    DetailCarte d1 = new DetailCarte();
+            //    d1.nom = persoRecup.getNomCarte();
+            //    d1.ecole = persoRecup.getEcole();
+            //    d1.aptLeader = persoRecup.getAptLeader();
+            //    d1.aptPassif = persoRecup.getAptPassif();
+            //    d1.couleur = persoRecup.getCouleur();
+            //    d1.type = persoRecup.getType();
+            //    d1.invasionRating = persoRecup.getInvasionRating();
+            //    d1.pvpRating = persoRecup.getPvpRating();
+            //    d1.nestRating = persoRecup.getNestRating();
+            //    d1.ShowDialog();
 
-            }
-            else
-            {
-                MessageBox.Show("Les critères ont mal été remplis ");
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Les critères ont mal été remplis ");
+            //}
+        }
+
+        private void buttonRecherche_Click(object sender, EventArgs e)
+        {
+            recherchePersonnage rp = new recherchePersonnage();
+            rp.Show();
+        }
+
+        private void btMenuEquip_Click(object sender, EventArgs e)
+        {
+            Equipe ep = new Equipe();
+            ep.Show();
         }
     }
 }

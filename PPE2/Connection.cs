@@ -66,6 +66,22 @@ namespace PPE2
             }
             rdr.Close();
             return listPersonnage;
+        }
+
+        public static List<Personnage> getToutLesPersonnagesSortitRecemment()
+        {
+            List<Personnage> listPersonnage = new List<Personnage>();
+            MySqlCommand cmd = conn.CreateCommand();
+            String reqI = "SELECT * FROM persoRecent";
+            cmd.CommandText = reqI;
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"], (string)rdr["LienLogoImage"]);
+                listPersonnage.Add(personnageRecup);
+            }
+            rdr.Close();
+            return listPersonnage;
 
         }
 
@@ -78,7 +94,7 @@ namespace PPE2
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"], (string)rdr["NOM_CARTE"], (string)rdr["NOM_ECOLE"], (string)rdr["EFFET_LEADER"], (string)rdr["EFFET_PASSIF"], (string)rdr["COULEUR"], (string)rdr["TYPE"], (int)rdr["PVP_RATING"], (int)rdr["NEST_RATING"], (int)rdr["INVASION_RATING"]);
+                Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"], (string)rdr["LienLogoImage"]);
                 listPersonnageDeUser.Add(personnageRecup);
             }
             rdr.Close();
@@ -130,6 +146,17 @@ namespace PPE2
             }
             rdr.Close();
             return listPerso;
+        }
+
+        public static bool ajouterPersonnage(Personnage p)
+        {
+            string getEcole = p.getEcole();
+
+            MySqlCommand cmd = conn.CreateCommand();
+            string reqI = "INSERT INTO CARTE VALUES("+null+" ,'"+ p.getNomCarte() +"',')";
+            cmd.CommandText = reqI;
+            int nbMaj = cmd.ExecuteNonQuery();
+            return (nbMaj == 1);
         }
         
     }

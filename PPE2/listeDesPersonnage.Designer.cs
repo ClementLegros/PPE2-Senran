@@ -1,7 +1,7 @@
 ﻿
 namespace PPE2
 {
-    partial class DetailCarte
+    partial class listeDesPersonnage
     {
         /// <summary>
         /// Required designer variable.
@@ -31,14 +31,14 @@ namespace PPE2
         {
             this.SuspendLayout();
             // 
-            // DetailCarte
+            // listeDesPersonnage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "DetailCarte";
-            this.Text = "DetailCarte";
-            this.Load += new System.EventHandler(this.DetailCarte_Load);
+            this.Name = "listeDesPersonnage";
+            this.Text = "listeDesPersonnage";
+            this.Load += new System.EventHandler(this.listeDesPersonnage_Load);
             this.ResumeLayout(false);
 
         }

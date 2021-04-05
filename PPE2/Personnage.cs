@@ -28,6 +28,30 @@ namespace PPE2
         private string urlImageCarte;
         private string urlImageLogo;
 
+        public Personnage(int noCarte, string urlImageLogo)
+        {
+            this.noCarte = noCarte;
+            this.urlImageLogo = urlImageLogo;
+        }
+        public Personnage(int noCarte, string nomCarte, string ecole, int forcePhy, int forceOff, int defense, int agilite, string aptLeader, string aptPassif, string ninpo, string sninpo, string couleur, string type, int pvpRating, int nestRating, int invasionRating, string urlImageCarte, string urlImageLogo) : this(noCarte, nomCarte, ecole)
+        {
+            this.forcePhy = forcePhy;
+            this.forceOff = forceOff;
+            this.defense = defense;
+            this.agilite = agilite;
+            this.aptLeader = aptLeader;
+            this.aptPassif = aptPassif;
+            this.ninpo = ninpo;
+            this.sninpo = sninpo;
+            this.couleur = couleur;
+            this.type = type;
+            this.pvpRating = pvpRating;
+            this.nestRating = nestRating;
+            this.invasionRating = invasionRating;
+            this.urlImageCarte = urlImageCarte;
+            this.urlImageLogo = urlImageLogo;
+        }
+
         public Personnage(int noCarte, string nomCarte,string urlImageLogo)
         {
             this.noCarte = noCarte;
@@ -49,20 +73,6 @@ namespace PPE2
             this.invasionRating = invasionRating;
         }
 
-        public Personnage(int noCarte, string nomCarte, string aptLeader, string aptPassif, string couleur, string type, int pvpRating, int nestRating, int invasionRating, string urlImageCarte, string urlImageLogo)
-        {
-            this.noCarte = noCarte;
-            this.nomCarte = nomCarte;
-            this.aptLeader = aptLeader;
-            this.aptPassif = aptPassif;
-            this.couleur = couleur;
-            this.type = type;
-            this.pvpRating = pvpRating;
-            this.nestRating = nestRating;
-            this.invasionRating = invasionRating;
-            this.urlImageCarte = urlImageCarte;
-            this.urlImageLogo = urlImageLogo;
-        }
 
         public void ajouterUrlImageCarte(string urlCarte)
         {
@@ -74,6 +84,35 @@ namespace PPE2
             this.urlImageLogo = urlLogo;
         }
 
+        public void setNomPersonnage(string nomPersonnage)
+        {
+            this.nomCarte = nomPersonnage;
+        }
+
+        public void setAptLeader(string aptLeader)
+        {
+            this.aptLeader = aptLeader;
+        }
+
+        public void setAptPassif(string aptPassif)
+        {
+            this.aptPassif = aptPassif;
+        }
+
+        public void setCouleur(string couleur)
+        {
+            this.couleur = couleur;
+        }
+
+        public void setType(string type)
+        {
+            this.type = type;
+        }
+
+        public void setEcole(string ecole)
+        {
+            this.ecole = ecole;
+        }
         public int getNumeroCarte()
         {
             return noCarte;
@@ -98,6 +137,37 @@ namespace PPE2
         {
             return couleur;
         }
+
+        public string getNinpo()
+        {
+            return ninpo;
+        }
+
+        public string getSninpo()
+        {
+            return sninpo;
+        }
+
+        public int getForcePhy()
+        {
+            return forcePhy;
+        }
+
+        public int getForceOff()
+        {
+            return forceOff;
+        }
+
+        public int getDefense()
+        {
+            return defense;
+        }
+
+        public int getAgilite()
+        {
+            return agilite;
+        }
+
 
         public int getInvasionRating()
         {

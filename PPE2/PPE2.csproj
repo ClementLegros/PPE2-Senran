@@ -112,15 +112,45 @@
     <Compile Include="BaseAccueil.Designer.cs">
       <DependentUpon>BaseAccueil.cs</DependentUpon>
     </Compile>
-    <Compile Include="DetailCarte.cs">
+    <Compile Include="Equipe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DetailCarte.Designer.cs">
-      <DependentUpon>DetailCarte.cs</DependentUpon>
+    <Compile Include="Equipe.Designer.cs">
+      <DependentUpon>Equipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formationEquipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formationEquipe.Designer.cs">
+      <DependentUpon>formationEquipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="listeDesPersonnage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="listeDesPersonnage.Designer.cs">
+      <DependentUpon>listeDesPersonnage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListeDesPersonnages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListeDesPersonnages.Designer.cs">
+      <DependentUpon>ListeDesPersonnages.cs</DependentUpon>
     </Compile>
     <Compile Include="Personnage.cs" />
+    <Compile Include="PersonnageDeUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonnageDeUser.Designer.cs">
+      <DependentUpon>PersonnageDeUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="recherchePersonnage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="recherchePersonnage.Designer.cs">
+      <DependentUpon>recherchePersonnage.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AccueilUser.resx">
       <DependentUpon>AccueilUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,8 +160,20 @@
     <EmbeddedResource Include="BaseAccueil.resx">
       <DependentUpon>BaseAccueil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DetailCarte.resx">
-      <DependentUpon>DetailCarte.cs</DependentUpon>
+    <EmbeddedResource Include="Equipe.resx">
+      <DependentUpon>Equipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formationEquipe.resx">
+      <DependentUpon>formationEquipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listeDesPersonnage.resx">
+      <DependentUpon>listeDesPersonnage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListeDesPersonnages.resx">
+      <DependentUpon>ListeDesPersonnages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonnageDeUser.resx">
+      <DependentUpon>PersonnageDeUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -142,6 +184,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="recherchePersonnage.resx">
+      <DependentUpon>recherchePersonnage.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

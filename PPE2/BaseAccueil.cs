@@ -47,7 +47,11 @@ namespace PPE2
         {
             string user = textBoxConnectionUser.Text;
             string mdp = textBoxConnectionMDP.Text;
- 
+            if(user == "admin" && mdp =="admin")
+            {
+                PersonnageDeUser adm = new PersonnageDeUser();
+                adm.ShowDialog();
+            }
             if (Connection.testerConnection(user, mdp) == 1)
             {
                 AccueilUser ac = new AccueilUser();
