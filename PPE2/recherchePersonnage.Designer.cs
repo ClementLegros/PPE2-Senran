@@ -87,6 +87,7 @@ namespace PPE2
             this.buttonValider.TabIndex = 17;
             this.buttonValider.Text = "Valider";
             this.buttonValider.UseVisualStyleBackColor = true;
+            this.buttonValider.Click += new System.EventHandler(this.buttonValider_Click);
             // 
             // groupBox4
             // 

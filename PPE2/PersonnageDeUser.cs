@@ -13,7 +13,10 @@ namespace PPE2
     public partial class PersonnageDeUser : Form
     {
         public int noUser;
+        List<Personnage> listPerso;
         
+
+
 
         public PersonnageDeUser()
         {
@@ -22,7 +25,7 @@ namespace PPE2
 
         private void PersonnageDeUser_Load(object sender, EventArgs e)
         {
-            List<Personnage> listPerso = Connection.getPersonnageDeUser(noUser);
+            listPerso = Connection.getPersonnageDeUser(noUser);
             
             int c = listPerso.Count;
             int horizontal = 16;
@@ -37,14 +40,18 @@ namespace PPE2
                     horizontal = 16;
                     vertical = vertical + 81;
                 }
+                string nomPicture = "pictureBoxPersonnage" + Convert.ToString(i);
                 PictureBox picture = new PictureBox
                 {
-                    Name = "pictureBoxPersonnage" + Convert.ToString(i),
+                    Name = nomPicture,
                     Size = new Size(100, 75),
-                    Location = new Point(horizontal , vertical),
+                    Location = new Point(horizontal, vertical),
                     SizeMode = PictureBoxSizeMode.StretchImage,
+                    Tag = listPerso[i].getNumeroCarte(),
                     ImageLocation = listPerso[i].getLienImageLogo()
+
                 };
+                picture.MouseClick += new MouseEventHandler(picture_Click);
                 this.Controls.Add(picture);
                 if(c != 0)
                 {
@@ -53,5 +60,17 @@ namespace PPE2
                 sautMoins = 0;
             }
         }
+
+        void picture_Click(object sender, EventArgs e)
+        {
+            PictureBox pb = sender as PictureBox;
+            int index = Convert.ToInt32(pb.Tag);
+            Personnage pers = listPerso[index];
+            DetailsCarte dc = new DetailsCarte();
+            dc.imgCarte = pers.getLienImageLogo();
+            dc.Show();
+        }
+
+
     }
 }

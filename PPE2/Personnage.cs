@@ -33,6 +33,9 @@ namespace PPE2
             this.noCarte = noCarte;
             this.urlImageLogo = urlImageLogo;
         }
+
+        
+
         public Personnage(int noCarte, string nomCarte, string ecole, int forcePhy, int forceOff, int defense, int agilite, string aptLeader, string aptPassif, string ninpo, string sninpo, string couleur, string type, int pvpRating, int nestRating, int invasionRating, string urlImageCarte, string urlImageLogo) : this(noCarte, nomCarte, ecole)
         {
             this.forcePhy = forcePhy;

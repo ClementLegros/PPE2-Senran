@@ -300,5 +300,71 @@ namespace PPE2
                 checkBoxMikaruga.Enabled = true;
             }
         }
+
+        private void buttonValider_Click(object sender, EventArgs e)
+        {
+            string couleur;
+            string type;
+            string ecole;
+
+            if (checkBoxBleu.Checked)
+            {
+                couleur = "BLEU";
+            }
+            if (checkBoxRouge.Checked)
+            {
+                couleur = "ROUGE";
+            }
+            if(checkBoxJaune.Checked)
+            {
+                couleur = "JAUNE";
+            }
+            if(checkBoxViolet.Checked)
+            {
+                couleur = "VIOLET";
+            }
+            if(checkBoxVert.Checked)
+            {
+                couleur = "VERT";
+            }
+            if (checkBoxGood.Checked)
+            {
+                type = "GOOD";
+            }
+            if (checkBoxEvil.Checked)
+            {
+                type = "EVIL";
+            }
+            if (checkBoxUnaligned.Checked)
+            {
+                type = "UNALIGNED";
+            }
+            if (checkBoxHanzo.Checked)
+            {
+                ecole = "HANZO";
+            }
+            if (checkBoxCrimsonSquad.Checked)
+            {
+                ecole = "CRIMSON SQUAD";
+            }
+            if (checkBoxGessen.Checked)
+            {
+                ecole = "GESSEN";
+            }
+            if (checkBoxHebijo.Checked)
+            {
+                ecole = "HEBIJO";
+            }
+            if (checkBoxMikaruga.Checked)
+            {
+                ecole = "MIKARUGA";
+            }
+            if (checkBoxNewWave.Checked)
+            {
+                ecole = "NEW WAVE";
+            }
+
+
+        }
     }
 }

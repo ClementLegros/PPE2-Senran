@@ -63,5 +63,10 @@ namespace PPE2
                 checkBoxPvp.Enabled = true;
             }
         }
+
+        private void Equipe_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

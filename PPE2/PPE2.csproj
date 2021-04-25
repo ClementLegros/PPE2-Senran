@@ -112,6 +112,12 @@
     <Compile Include="BaseAccueil.Designer.cs">
       <DependentUpon>BaseAccueil.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetailsCarte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailsCarte.Designer.cs">
+      <DependentUpon>DetailsCarte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Equipe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,12 @@
     <Compile Include="recherchePersonnage.Designer.cs">
       <DependentUpon>recherchePersonnage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResultatRecherche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultatRecherche.Designer.cs">
+      <DependentUpon>ResultatRecherche.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AccueilUser.resx">
       <DependentUpon>AccueilUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseAccueil.resx">
       <DependentUpon>BaseAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailsCarte.resx">
+      <DependentUpon>DetailsCarte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Equipe.resx">
       <DependentUpon>Equipe.cs</DependentUpon>
@@ -186,6 +201,9 @@
     </Compile>
     <EmbeddedResource Include="recherchePersonnage.resx">
       <DependentUpon>recherchePersonnage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultatRecherche.resx">
+      <DependentUpon>ResultatRecherche.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
