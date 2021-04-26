@@ -303,9 +303,9 @@ namespace PPE2
 
         private void buttonValider_Click(object sender, EventArgs e)
         {
-            string couleur;
-            string type;
-            string ecole;
+            string couleur = "";
+            string type = "";
+            string ecole = "";
 
             if (checkBoxBleu.Checked)
             {
@@ -364,6 +364,17 @@ namespace PPE2
                 ecole = "NEW WAVE";
             }
 
+            ResultatRecherche rr = new ResultatRecherche();
+            rr.couleur = couleur;
+            rr.type = type;
+            rr.ecole = ecole;
+            rr.Show();
+            
+
+        }
+
+        private void recherchePersonnage_Load(object sender, EventArgs e)
+        {
 
         }
     }

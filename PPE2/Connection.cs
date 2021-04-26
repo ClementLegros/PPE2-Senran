@@ -158,7 +158,24 @@ namespace PPE2
             int nbMaj = cmd.ExecuteNonQuery();
             return (nbMaj == 1);
         }
-        
+
+        public static List<Personnage> getPersonnageRecherche(string couleur, string type, string ecole)
+        {
+            List<Personnage> listPersonnageRecherche = new List<Personnage>();
+            MySqlCommand cmd = conn.CreateCommand();
+            String reqI = "CALL GetPersoRecherche('" + couleur + "','"+ type +"','"+ ecole +"')";
+            cmd.CommandText = reqI;
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"], (string)rdr["NOM_CARTE"], (string)rdr["NOM_ECOLE"], (int)rdr["Force_Physique"], (int)rdr["Puissance_Offensive"], (int)rdr["Defense"], (int)rdr["Agilite"], (string)rdr["EFFET_LEADER"],(string)rdr["EFFET_PASSIF"], (string)rdr["Ninja"], (string)rdr["Secret"], (string)rdr["COULEUR"], (string)rdr["TYPE"], (int)rdr["PVP_RATING"], (int)rdr["NEST_RATING"], (int)rdr["INVASION_RATING"], (string)rdr["LienCarteImage"], (string)rdr["LienLogoImage"]);
+                listPersonnageRecherche.Add(personnageRecup);
+            }
+            rdr.Close();
+            return listPersonnageRecherche;
+
+        }
+
     }
     
     

@@ -60,7 +60,7 @@ namespace PPE2
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Location = new System.Drawing.Point(7, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(501, 20);
             this.label1.TabIndex = 0;
@@ -73,9 +73,9 @@ namespace PPE2
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(47, 50);
+            this.groupBox1.Location = new System.Drawing.Point(11, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(515, 349);
+            this.groupBox1.Size = new System.Drawing.Size(515, 297);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -83,7 +83,7 @@ namespace PPE2
             // 
             this.buttonValider.Location = new System.Drawing.Point(6, 243);
             this.buttonValider.Name = "buttonValider";
-            this.buttonValider.Size = new System.Drawing.Size(417, 42);
+            this.buttonValider.Size = new System.Drawing.Size(503, 42);
             this.buttonValider.TabIndex = 17;
             this.buttonValider.Text = "Valider";
             this.buttonValider.UseVisualStyleBackColor = true;
@@ -299,11 +299,12 @@ namespace PPE2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(538, 333);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "recherchePersonnage";
             this.Text = "recherchePersonnage";
+            this.Load += new System.EventHandler(this.recherchePersonnage_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
