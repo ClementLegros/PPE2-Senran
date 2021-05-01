@@ -23,23 +23,25 @@ namespace PPE2
         }
 
         //Test si l'utilisateur est présent dans la BDD
-        public static int testerConnection(string user, string mdp)
+        public static int testerConnection(string login, string mdp)
         {
             MySqlCommand cmd = conn.CreateCommand();
-            string reqI = "SELECT COUNT(*) FROM UTILISATEUR WHERE USER = '"+ user +"' AND PASSWORD = '"+ mdp +"'";
+            string reqI = "SELECT COUNT(*) FROM USER WHERE LOGIN = '"+ login +"' AND PASSWORD = '"+ mdp +"'";
             cmd.CommandText = reqI;
             int c = Convert.ToInt32(cmd.ExecuteScalar());
             return c;
         }
         
-        public static int getIdUser(string user, string mdp)
+        //On récupère le type de Jouer savoir si c'est un simple joueur ou un admin
+        public static string getTypeUser(string login)
         {
             MySqlCommand cmd = conn.CreateCommand();
-            string reqI = "SELECT NO_UTILISATEUR FROM UTILISATEUR WHERE USER = '" + user + "' AND PASSWORD = '" + mdp + "'";
+            string reqI = "SELECT TYPE_USER FROM USER WHERE LOGIN = '"+login+"'";
             cmd.CommandText = reqI;
-            int noId = Convert.ToInt32(cmd.ExecuteScalar());
-            return noId;   
+            string typeUser = (string)cmd.ExecuteScalar();
+            return typeUser;
         }
+
 
         //Ajoute un personnage dans la collection de l'utilisateur
         public static int ajouterPersonnageToUser(Personnage p, int idUser)
@@ -47,11 +49,10 @@ namespace PPE2
             int numeroCarte = p.getNumeroCarte();
             MySqlCommand cmd = conn.CreateCommand();
             string reqI = "INSERT INTO Collection(NO_JOUEUR,NO_CARTE) WHERE NO_JOUEUR ='" + idUser + "' AND NO_CARTE = '" + numeroCarte + "'";
-           
             return 0;
         }
 
-        //Récupère toute les Cartes du jeux sans exception (tant qu'elle sont complète)
+        //Récupère toute les Cartes du jeux sans exception
         public static List<Personnage> getToutLesPersonnages()
         {
             List<Personnage> listPersonnage = new List<Personnage>();
@@ -61,50 +62,50 @@ namespace PPE2
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],(string)rdr["NOM_CARTE"],(string)rdr["NOM_ECOLE"],(string)rdr["EFFET_LEADER"],(string)rdr["EFFET_PASSIF"],(string)rdr["COULEUR"],(string)rdr["TYPE"],(int)rdr["PVP_RATING"],(int)rdr["NEST_RATING"],(int)rdr["INVASION_RATING"]);
-                listPersonnage.Add(personnageRecup);
+                //Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"], (string)rdr["NOM_CARTE"], (string)rdr["NOM_ECOLE"], (string)rdr["EFFET_LEADER"], (string)rdr["EFFET_PASSIF"], (string)rdr["COULEUR"], (string)rdr["TYPE"], (int)rdr["PVP_RATING"], (int)rdr["NEST_RATING"], (int)rdr["INVASION_RATING"]);
+                //listPersonnage.Add(personnageRecup);
             }
             rdr.Close();
             return listPersonnage;
         }
 
-        public static List<Personnage> getToutLesPersonnagesSortitRecemment()
+        public static List<Carte> getCarteRecent()
         {
-            List<Personnage> listPersonnage = new List<Personnage>();
+            List<Carte> listeCarte = new List<Carte>();
             MySqlCommand cmd = conn.CreateCommand();
-            String reqI = "SELECT * FROM persoRecent";
+            String reqI = "SELECT * FROM CARTE";
             cmd.CommandText = reqI;
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"], (string)rdr["LienLogoImage"]);
-                listPersonnage.Add(personnageRecup);
+                Carte carteRecup = new Carte((int)rdr["NO_CARTE"], (string)rdr["Logo"]);
+                listeCarte.Add(carteRecup);
             }
             rdr.Close();
-            return listPersonnage;
+            return listeCarte;
 
         }
 
-        public static List<Personnage> getPersonnageDeUser(int idUser)
+        public static List<Carte> getPersonnageDeUser(string idUser)
         {
-            List<Personnage> listPersonnageDeUser = new List<Personnage>();
+            List<Carte> listeCarte = new List<Carte>();
             MySqlCommand cmd = conn.CreateCommand();
-            String reqI = "CALL GetPersoDeUser('"+idUser+"')";
+            String reqI = "CALL GetPersoDeUser('" + idUser + "')";
             cmd.CommandText = reqI;
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"], (string)rdr["LienLogoImage"]);
-                listPersonnageDeUser.Add(personnageRecup);
+                Carte carteRecup = new Carte((int)rdr["NO_CARTE"], (string)rdr["LOGO"]);
+                listeCarte.Add(carteRecup);
             }
             rdr.Close();
-            return listPersonnageDeUser;
+            return listeCarte;
 
         }
 
 
         //Ajout d'utilisateur à la bdd
-        public static bool ajouterUser(string user , string mdp)
+        public static bool ajouterUser(string user, string mdp)
         {
             MySqlCommand cmd = conn.CreateCommand();
             string reqI = "INSERT INTO JOUEUR VALUES('" + 4 + "','" + user + "','" + mdp + "')";
@@ -114,33 +115,33 @@ namespace PPE2
         }
 
         //Récupérer la liste des personnages en fonction des ordres de tri
-        public static List<Personnage> getListPersoForTeam(string cdType1, string cdCouleur1, string cdType2,string cdCouleur2, string modeDeJeux)
+        public static List<Personnage> getListPersoForTeam(string cdType1, string cdCouleur1, string cdType2, string cdCouleur2, string modeDeJeux)
         {
             List<Personnage> listPerso = new List<Personnage>();
 
             MySqlCommand cmd = conn.CreateCommand();
-            String reqI = "CALL GetTriCarte('"+ cdType1 +"', '"+cdCouleur1+"', '"+modeDeJeux+"', '"+cdType2+"', '"+cdCouleur2+"')";
+            String reqI = "CALL GetTriCarte('" + cdType1 + "', '" + cdCouleur1 + "', '" + modeDeJeux + "', '" + cdType2 + "', '" + cdCouleur2 + "')";
             cmd.CommandText = reqI;
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],
-                                                            (string)rdr["NOM_CARTE"],
-                                                            (string)rdr["LienLogoImage"]);
-                                                            
-                listPerso.Add(personnageRecup);
-                
+                //Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],
+                                                            //(string)rdr["NOM_CARTE"],
+                                                            //(string)rdr["LienLogoImage"]);
+
+                //listPerso.Add(personnageRecup);
+
             }
-            
+
             rdr.NextResult();
-            if(rdr.HasRows)
+            if (rdr.HasRows)
             {
                 while (rdr.Read())
                 {
-                    Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],
-                                                            (string)rdr["NOM_CARTE"],
-                                                            (string)rdr["LienLogoImage"]);
-                    listPerso.Add(personnageRecup);
+                    //Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],
+                                                            //(string)rdr["NOM_CARTE"],
+                                                            //(string)rdr["LienLogoImage"]);
+                    //listPerso.Add(personnageRecup);
 
                 }
             }
@@ -153,7 +154,7 @@ namespace PPE2
             string getEcole = p.getEcole();
 
             MySqlCommand cmd = conn.CreateCommand();
-            string reqI = "INSERT INTO CARTE VALUES("+null+" ,'"+ p.getNomCarte() +"',')";
+            string reqI = "INSERT INTO CARTE VALUES(" + null + " ,'" + p.getNomCarte() + "',')";
             cmd.CommandText = reqI;
             int nbMaj = cmd.ExecuteNonQuery();
             return (nbMaj == 1);
@@ -163,13 +164,13 @@ namespace PPE2
         {
             List<Personnage> listPersonnageRecherche = new List<Personnage>();
             MySqlCommand cmd = conn.CreateCommand();
-            String reqI = "CALL GetPersoRecherche('" + couleur + "','"+ type +"','"+ ecole +"')";
+            String reqI = "CALL GetPersoRecherche('" + couleur + "','" + type + "','" + ecole + "')";
             cmd.CommandText = reqI;
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"], (string)rdr["NOM_CARTE"], (string)rdr["NOM_ECOLE"], (int)rdr["Force_Physique"], (int)rdr["Puissance_Offensive"], (int)rdr["Defense"], (int)rdr["Agilite"], (string)rdr["EFFET_LEADER"],(string)rdr["EFFET_PASSIF"], (string)rdr["Ninja"], (string)rdr["Secret"], (string)rdr["COULEUR"], (string)rdr["TYPE"], (int)rdr["PVP_RATING"], (int)rdr["NEST_RATING"], (int)rdr["INVASION_RATING"], (string)rdr["LienCarteImage"], (string)rdr["LienLogoImage"]);
-                listPersonnageRecherche.Add(personnageRecup);
+                //Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"], (string)rdr["NOM_CARTE"], (string)rdr["NOM_ECOLE"], (int)rdr["Force_Physique"], (int)rdr["Puissance_Offensive"], (int)rdr["Defense"], (int)rdr["Agilite"], (string)rdr["EFFET_LEADER"], (string)rdr["EFFET_PASSIF"], (string)rdr["Ninja"], (string)rdr["Secret"], (string)rdr["COULEUR"], (string)rdr["TYPE"], (int)rdr["PVP_RATING"], (int)rdr["NEST_RATING"], (int)rdr["INVASION_RATING"], (string)rdr["LienCarteImage"], (string)rdr["LienLogoImage"]);
+                //listPersonnageRecherche.Add(personnageRecup);
             }
             rdr.Close();
             return listPersonnageRecherche;

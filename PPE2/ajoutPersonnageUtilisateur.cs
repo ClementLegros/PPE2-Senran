@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace PPE2
 {
-    public partial class formationEquipe : Form
+    public partial class ajoutPersonnageUtilisateur : Form
     {
-        public formationEquipe()
+        public ajoutPersonnageUtilisateur()
         {
             InitializeComponent();
         }
 
-        private void formationEquipe_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btAutoTeam_Click(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -29,6 +29,7 @@ namespace PPE2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Accueil));
             this.textBoxConnectionUser = new System.Windows.Forms.TextBox();
             this.btValiderConnection = new System.Windows.Forms.Button();
             this.textBoxConnectionMDP = new System.Windows.Forms.TextBox();
@@ -217,9 +218,11 @@ namespace PPE2
             this.Controls.Add(this.groupBoxInscription);
             this.Controls.Add(this.groupBoxConnection);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "Accueil";
             this.Text = "Connexion";
+            this.Load += new System.EventHandler(this.Accueil_Load);
             this.groupBoxConnection.ResumeLayout(false);
             this.groupBoxConnection.PerformLayout();
             this.groupBoxInscription.ResumeLayout(false);

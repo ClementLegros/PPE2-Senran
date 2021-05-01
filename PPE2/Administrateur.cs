@@ -30,7 +30,7 @@ namespace PPE2
             }
             else
             {
-                Personnage persoCree = new Personnage(Convert.ToInt32(null), textBoxAjouterNomPersonnage.Text, textBoxAjouterEcole.Text, Convert.ToInt32(textBoxAjouterForcePhy.Text), Convert.ToInt32(textBoxAjouterPuissanceOff.Text), Convert.ToInt32(textBoxAjouterDefense.Text), Convert.ToInt32(textBoxAjouterAgilite.Text), textBoxAjouterPtdLeader.Text, textBoxAjouterPassif.Text, textBoxAjouterNinja.Text, textBoxAjouterNinjaSecret.Text, textBoxAjouterCouleur.Text, textBoxAjouterType.Text, Convert.ToInt32(textBoxAjouterRankPVP.Text), Convert.ToInt32(textBoxAjouterRankNest.Text), Convert.ToInt32(textBoxAjouterRankInvasion.Text), textBoxAjouterLienImageCarte.Text, textBoxAjouterLogoCarte.Text);
+                //Personnage persoCree = new Personnage(Convert.ToInt32(null), textBoxAjouterNomPersonnage.Text, textBoxAjouterEcole.Text, Convert.ToInt32(textBoxAjouterForcePhy.Text), Convert.ToInt32(textBoxAjouterPuissanceOff.Text), Convert.ToInt32(textBoxAjouterDefense.Text), Convert.ToInt32(textBoxAjouterAgilite.Text), textBoxAjouterPtdLeader.Text, textBoxAjouterPassif.Text, textBoxAjouterNinja.Text, textBoxAjouterNinjaSecret.Text, textBoxAjouterCouleur.Text, textBoxAjouterType.Text, Convert.ToInt32(textBoxAjouterRankPVP.Text), Convert.ToInt32(textBoxAjouterRankNest.Text), Convert.ToInt32(textBoxAjouterRankInvasion.Text), textBoxAjouterLienImageCarte.Text, textBoxAjouterLogoCarte.Text);
                     
             }
         }
@@ -51,7 +51,7 @@ namespace PPE2
             textBoxAjouterNinjaSecret.Text = persoAmodifier.getSninpo();
 
             textBoxAjouterForcePhy.Text = Convert.ToString(persoAmodifier.getForcePhy());
-            textBoxAjouterPuissanceOff.Text = Convert.ToString(persoAmodifier.getForceOff());
+            textBoxAjouterPuissanceOff.Text = Convert.ToString(persoAmodifier.getPuissanceOff());
             textBoxAjouterDefense.Text = Convert.ToString(persoAmodifier.getDefense());
             textBoxAjouterAgilite.Text = Convert.ToString(persoAmodifier.getAgilite());
 
@@ -70,7 +70,7 @@ namespace PPE2
 
         private void buttonValiderModification_Click(object sender, EventArgs e)
         {
-            Personnage persoCree = new Personnage(Convert.ToInt32(null), textBoxAjouterNomPersonnage.Text, textBoxAjouterEcole.Text, Convert.ToInt32(textBoxAjouterForcePhy.Text), Convert.ToInt32(textBoxAjouterPuissanceOff.Text), Convert.ToInt32(textBoxAjouterDefense.Text), Convert.ToInt32(textBoxAjouterAgilite.Text), textBoxAjouterPtdLeader.Text, textBoxAjouterPassif.Text, textBoxAjouterNinja.Text, textBoxAjouterNinjaSecret.Text, textBoxAjouterCouleur.Text, textBoxAjouterType.Text, Convert.ToInt32(textBoxAjouterRankPVP.Text), Convert.ToInt32(textBoxAjouterRankNest.Text), Convert.ToInt32(textBoxAjouterRankInvasion.Text), textBoxAjouterLienImageCarte.Text, textBoxAjouterLogoCarte.Text);
+            //Personnage persoCree = new Personnage(Convert.ToInt32(null), textBoxAjouterNomPersonnage.Text, textBoxAjouterEcole.Text, Convert.ToInt32(textBoxAjouterForcePhy.Text), Convert.ToInt32(textBoxAjouterPuissanceOff.Text), Convert.ToInt32(textBoxAjouterDefense.Text), Convert.ToInt32(textBoxAjouterAgilite.Text), textBoxAjouterPtdLeader.Text, textBoxAjouterPassif.Text, textBoxAjouterNinja.Text, textBoxAjouterNinjaSecret.Text, textBoxAjouterCouleur.Text, textBoxAjouterType.Text, Convert.ToInt32(textBoxAjouterRankPVP.Text), Convert.ToInt32(textBoxAjouterRankNest.Text), Convert.ToInt32(textBoxAjouterRankInvasion.Text), textBoxAjouterLienImageCarte.Text, textBoxAjouterLogoCarte.Text);
 
         }
     }

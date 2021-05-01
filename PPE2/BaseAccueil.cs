@@ -47,18 +47,16 @@ namespace PPE2
         {
             string user = textBoxConnectionUser.Text;
             string mdp = textBoxConnectionMDP.Text;
-            if(user == "admin" && mdp =="admin")
-            {
-                PersonnageDeUser adm = new PersonnageDeUser();
-                adm.ShowDialog();
-            }
             if (Connection.testerConnection(user, mdp) == 1)
             {
-                AccueilUser ac = new AccueilUser();
-                ac.idUser = Connection.getIdUser(user,mdp);
-                MessageBox.Show(Convert.ToString(ac.idUser));
-                ac.Show();
-                this.Hide();
+                if(Connection.getTypeUser(user) == "UTILISATEUR" )
+                {
+                    AccueilUser ac = new AccueilUser();
+                    ac.idUser = user;
+                    ac.Show();
+                    this.Hide();
+                }
+                
             }
 
             else
@@ -70,6 +68,11 @@ namespace PPE2
         private void btQuitter_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Accueil_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

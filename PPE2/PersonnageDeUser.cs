@@ -12,8 +12,8 @@ namespace PPE2
 {
     public partial class PersonnageDeUser : Form
     {
-        public int noUser;
-        List<Personnage> listPerso;
+        public string noUser;
+        List<Carte> listeCarte;
         
 
 
@@ -25,9 +25,9 @@ namespace PPE2
 
         private void PersonnageDeUser_Load(object sender, EventArgs e)
         {
-            listPerso = Connection.getPersonnageDeUser(noUser);
+            listeCarte = Connection.getPersonnageDeUser(noUser);
             
-            int c = listPerso.Count;
+            int c = listeCarte.Count;
             int horizontal = 16;
             int vertical = 95;
             int sautMoins = 106;
@@ -47,8 +47,8 @@ namespace PPE2
                     Size = new Size(100, 75),
                     Location = new Point(horizontal, vertical),
                     SizeMode = PictureBoxSizeMode.StretchImage,
-                    Tag = listPerso[i].getNumeroCarte(),
-                    ImageLocation = listPerso[i].getLienImageLogo()
+                    Tag = i,
+                    ImageLocation = listeCarte[i].getLogo()
 
                 };
                 picture.MouseClick += new MouseEventHandler(picture_Click);
@@ -65,12 +65,15 @@ namespace PPE2
         {
             PictureBox pb = sender as PictureBox;
             int index = Convert.ToInt32(pb.Tag);
-            Personnage pers = listPerso[index];
+            Carte carteRecup = listeCarte[index];
             DetailsCarte dc = new DetailsCarte();
-            dc.imgCarte = pers.getLienImageLogo();
+            dc.imgCarte = carteRecup.getLogo();
             dc.Show();
         }
 
+        private void buttonAjouterPerso_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

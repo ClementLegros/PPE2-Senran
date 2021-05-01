@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace PPE2
 {
-    class Personnage : IComparable
+    class Personnage
     {
         private int noCarte;
+        private string nomPersonnage;
         private string nomCarte;
         private string ecole;
         private int forcePhy;
-        private int forceOff;
+        private int puissanceOff;
         private int defense;
         private int agilite;
         private string aptLeader;
@@ -27,19 +28,17 @@ namespace PPE2
         private int invasionRating;
         private string urlImageCarte;
         private string urlImageLogo;
+        private string descriptif;
 
-        public Personnage(int noCarte, string urlImageLogo)
+        //On utilise se constructeur quand on veux un descriptif complet de la carte
+        public Personnage(int noCarte, string nomPersonnage, string nomCarte, string ecole, int forcePhy, int puissanceOff, int defense, int agilite, string aptLeader, string aptPassif, string ninpo, string sninpo, string couleur, string type, int pvpRating, int nestRating, int invasionRating, string urlImageCarte, string urlImageLogo, string descriptif)
         {
             this.noCarte = noCarte;
-            this.urlImageLogo = urlImageLogo;
-        }
-
-        
-
-        public Personnage(int noCarte, string nomCarte, string ecole, int forcePhy, int forceOff, int defense, int agilite, string aptLeader, string aptPassif, string ninpo, string sninpo, string couleur, string type, int pvpRating, int nestRating, int invasionRating, string urlImageCarte, string urlImageLogo) : this(noCarte, nomCarte, ecole)
-        {
+            this.nomPersonnage = nomPersonnage;
+            this.nomCarte = nomCarte;
+            this.ecole = ecole;
             this.forcePhy = forcePhy;
-            this.forceOff = forceOff;
+            this.puissanceOff = puissanceOff;
             this.defense = defense;
             this.agilite = agilite;
             this.aptLeader = aptLeader;
@@ -53,28 +52,16 @@ namespace PPE2
             this.invasionRating = invasionRating;
             this.urlImageCarte = urlImageCarte;
             this.urlImageLogo = urlImageLogo;
+            this.descriptif = descriptif;
         }
 
-        public Personnage(int noCarte, string nomCarte,string urlImageLogo)
+        //On utilise se constructeur pour afficher rapidements des cartes
+        public Personnage(int noCarte, string urlImageLogo)
         {
             this.noCarte = noCarte;
-            this.nomCarte = nomCarte;
             this.urlImageLogo = urlImageLogo;
         }
 
-        public Personnage(int noCarte,string nomCarte, string ecole, string aptLeader,string aptPassif,string couleur, string type,int pvpRating,int nestRating,int invasionRating)
-        {
-            this.noCarte = noCarte;
-            this.nomCarte = nomCarte;
-            this.ecole = ecole;
-            this.aptLeader = aptLeader;
-            this.aptPassif = aptPassif;
-            this.couleur = couleur;
-            this.type = type;
-            this.pvpRating = pvpRating;
-            this.nestRating = nestRating;
-            this.invasionRating = invasionRating;
-        }
 
 
         public void ajouterUrlImageCarte(string urlCarte)
@@ -156,9 +143,9 @@ namespace PPE2
             return forcePhy;
         }
 
-        public int getForceOff()
+        public int getPuissanceOff()
         {
-            return forceOff;
+            return puissanceOff;
         }
 
         public int getDefense()
@@ -216,11 +203,6 @@ namespace PPE2
         public override string ToString()
         {   
             return nomCarte + " / " + couleur + " / " + aptLeader + " / " + ecole;
-        }
-
-        public int CompareTo(object obj)
-        {
-            throw new NotImplementedException();
         }
     }
 }

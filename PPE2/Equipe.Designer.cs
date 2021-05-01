@@ -61,13 +61,13 @@ namespace PPE2
             this.label3 = new System.Windows.Forms.Label();
             this.listBoxConditionSecondaireType = new System.Windows.Forms.ListBox();
             this.listBoxConditionSecondaireCouleur = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonValider = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFormationAuto1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFormationAuto2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFormationAuto5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFormationAuto3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFormationAuto4 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
@@ -88,11 +88,11 @@ namespace PPE2
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormationAuto1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormationAuto2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormationAuto5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormationAuto3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormationAuto4)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -427,24 +427,25 @@ namespace PPE2
             this.listBoxConditionSecondaireCouleur.Size = new System.Drawing.Size(120, 84);
             this.listBoxConditionSecondaireCouleur.TabIndex = 9;
             // 
-            // button1
+            // buttonValider
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(10, 403);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(390, 66);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Valider";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonValider.Location = new System.Drawing.Point(10, 403);
+            this.buttonValider.Name = "buttonValider";
+            this.buttonValider.Size = new System.Drawing.Size(390, 66);
+            this.buttonValider.TabIndex = 10;
+            this.buttonValider.Text = "Valider";
+            this.buttonValider.UseVisualStyleBackColor = true;
+            this.buttonValider.Click += new System.EventHandler(this.buttonValider_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pictureBox8);
-            this.groupBox1.Controls.Add(this.pictureBox7);
-            this.groupBox1.Controls.Add(this.pictureBox5);
-            this.groupBox1.Controls.Add(this.pictureBox4);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.pictureBoxFormationAuto1);
+            this.groupBox1.Controls.Add(this.pictureBoxFormationAuto2);
+            this.groupBox1.Controls.Add(this.pictureBoxFormationAuto5);
+            this.groupBox1.Controls.Add(this.pictureBoxFormationAuto3);
+            this.groupBox1.Controls.Add(this.pictureBoxFormationAuto4);
+            this.groupBox1.Controls.Add(this.buttonValider);
             this.groupBox1.Controls.Add(this.listBoxConditionSecondaireCouleur);
             this.groupBox1.Controls.Add(this.listBoxConditionSecondaireType);
             this.groupBox1.Controls.Add(this.label3);
@@ -464,45 +465,45 @@ namespace PPE2
             this.groupBox1.Text = "Composition automatique";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // pictureBox8
+            // pictureBoxFormationAuto1
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(280, 506);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox8.TabIndex = 17;
-            this.pictureBox8.TabStop = false;
+            this.pictureBoxFormationAuto1.Location = new System.Drawing.Point(280, 506);
+            this.pictureBoxFormationAuto1.Name = "pictureBoxFormationAuto1";
+            this.pictureBoxFormationAuto1.Size = new System.Drawing.Size(100, 78);
+            this.pictureBoxFormationAuto1.TabIndex = 17;
+            this.pictureBoxFormationAuto1.TabStop = false;
             // 
-            // pictureBox7
+            // pictureBoxFormationAuto2
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(138, 506);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox7.TabIndex = 16;
-            this.pictureBox7.TabStop = false;
+            this.pictureBoxFormationAuto2.Location = new System.Drawing.Point(138, 506);
+            this.pictureBoxFormationAuto2.Name = "pictureBoxFormationAuto2";
+            this.pictureBoxFormationAuto2.Size = new System.Drawing.Size(100, 78);
+            this.pictureBoxFormationAuto2.TabIndex = 16;
+            this.pictureBoxFormationAuto2.TabStop = false;
             // 
-            // pictureBox5
+            // pictureBoxFormationAuto5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(562, 506);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox5.TabIndex = 15;
-            this.pictureBox5.TabStop = false;
+            this.pictureBoxFormationAuto5.Location = new System.Drawing.Point(562, 506);
+            this.pictureBoxFormationAuto5.Name = "pictureBoxFormationAuto5";
+            this.pictureBoxFormationAuto5.Size = new System.Drawing.Size(100, 78);
+            this.pictureBoxFormationAuto5.TabIndex = 15;
+            this.pictureBoxFormationAuto5.TabStop = false;
             // 
-            // pictureBox4
+            // pictureBoxFormationAuto3
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(427, 506);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox4.TabIndex = 14;
-            this.pictureBox4.TabStop = false;
+            this.pictureBoxFormationAuto3.Location = new System.Drawing.Point(427, 506);
+            this.pictureBoxFormationAuto3.Name = "pictureBoxFormationAuto3";
+            this.pictureBoxFormationAuto3.Size = new System.Drawing.Size(100, 78);
+            this.pictureBoxFormationAuto3.TabIndex = 14;
+            this.pictureBoxFormationAuto3.TabStop = false;
             // 
-            // pictureBox1
+            // pictureBoxFormationAuto4
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(10, 506);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxFormationAuto4.Location = new System.Drawing.Point(10, 506);
+            this.pictureBoxFormationAuto4.Name = "pictureBoxFormationAuto4";
+            this.pictureBoxFormationAuto4.Size = new System.Drawing.Size(100, 78);
+            this.pictureBoxFormationAuto4.TabIndex = 11;
+            this.pictureBoxFormationAuto4.TabStop = false;
             // 
             // Equipe
             // 
@@ -535,11 +536,11 @@ namespace PPE2
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormationAuto1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormationAuto2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormationAuto5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormationAuto3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormationAuto4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -577,12 +578,12 @@ namespace PPE2
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox listBoxConditionSecondaireType;
         private System.Windows.Forms.ListBox listBoxConditionSecondaireCouleur;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxFormationAuto1;
+        private System.Windows.Forms.PictureBox pictureBoxFormationAuto2;
+        private System.Windows.Forms.PictureBox pictureBoxFormationAuto5;
+        private System.Windows.Forms.PictureBox pictureBoxFormationAuto3;
+        private System.Windows.Forms.PictureBox pictureBoxFormationAuto4;
     }
 }

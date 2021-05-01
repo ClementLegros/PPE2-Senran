@@ -14,9 +14,7 @@ namespace PPE2
 {
     public partial class AccueilUser : Form
     {
-        List<Personnage> listPersonnageBDD;
-        collection collectionDeUser;
-        public int idUser;
+        public string idUser;
 
         public AccueilUser()
         {
@@ -26,13 +24,13 @@ namespace PPE2
 
         private void AccueilUser_Load(object sender, EventArgs e)
         {
-            List<Personnage> personnageRecent = Connection.getToutLesPersonnagesSortitRecemment();
-            pictureBoxDernierPersoSorti1.Load(personnageRecent[0].getLienImageLogo());
-            pictureBoxDernierPersoSorti2.Load(personnageRecent[1].getLienImageLogo());
-            pictureBoxDernierPersoSorti3.Load(personnageRecent[2].getLienImageLogo());
-            pictureBoxDernierPersoSorti4.Load(personnageRecent[3].getLienImageLogo());
-            pictureBoxDernierPersoSorti5.Load(personnageRecent[4].getLienImageLogo());
-            pictureBoxDernierPersoSorti6.Load(personnageRecent[5].getLienImageLogo());
+            List<Carte> listeCarte = Connection.getCarteRecent();
+            pictureBoxDernierPersoSorti1.Load(listeCarte[0].getLogo());
+            //pictureBoxDernierPersoSorti2.Load(personnageRecent[1].getLienImageLogo());
+            //pictureBoxDernierPersoSorti3.Load(personnageRecent[2].getLienImageLogo());
+            //pictureBoxDernierPersoSorti4.Load(personnageRecent[3].getLienImageLogo());
+            //pictureBoxDernierPersoSorti5.Load(personnageRecent[4].getLienImageLogo());
+            //pictureBoxDernierPersoSorti6.Load(personnageRecent[5].getLienImageLogo());
         }
 
 
@@ -48,7 +46,7 @@ namespace PPE2
         private void btAjouterPersoToUserCollection_Click(object sender, EventArgs e)
         {
             Personnage perso = (Personnage)listBoxPersoBDD.SelectedItem;
-            Connection.ajouterPersonnageToUser(perso, idUser);
+            //Connection.ajouterPersonnageToUser(perso, idUser);
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

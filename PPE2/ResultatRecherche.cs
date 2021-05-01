@@ -29,7 +29,8 @@ namespace PPE2
             int deuxiemeLigne = 125;
             int troisiemeLigne = 220;
             int quatriemeLigne = 330;
-            int ligneLabel = 300;
+            int cinquiemeLigne = 450;
+            int ligneLabel = 525;
 
             for (int i = 0; i < listPerso.Count; i++)
             {
@@ -173,7 +174,7 @@ namespace PPE2
 
                 Label PuissanceOffensive = new Label
                 {
-                    Text = Convert.ToString(listPerso[i].getForceOff()),
+                    Text = Convert.ToString(listPerso[i].getPuissanceOff()),
                     Name = "PuissanceOffensive" + Convert.ToString(i),
                     Location = new Point(172, quatriemeLigne),
                     Size = new Size(40, 15)
@@ -199,7 +200,7 @@ namespace PPE2
                 {
                     Text = "Ninpo:",
                     Name = "NinpoText" + Convert.ToString(i),
-                    Location = new Point(452, troisiemeLigne),
+                    Location = new Point(10, cinquiemeLigne),
                     Size = new Size(53, 15)
                 };
 
@@ -207,35 +208,35 @@ namespace PPE2
                 {
                     Text = listPerso[i].getNinpo(),
                     Name = "NinpoText" + Convert.ToString(i),
-                    Location = new Point(531, troisiemeLigne),
-                    Size = new Size(155, 15)
+                    Location = new Point(150, cinquiemeLigne),
+                    Size = new Size(170, 70)
                 };
 
 
 
-                //Label SninpoText = new Label
-                //{
-                //    Text = "Sninpo:",
-                //    Name = "SninpoText" + Convert.ToString(i),
-                //    Location = new Point(452, quatriemeLigne),
-                //    Size = new Size(70, 15)
-                //};
+                Label SninpoText = new Label
+                {
+                    Text = "Sninpo:",
+                    Name = "SninpoText" + Convert.ToString(i),
+                    Location = new Point(452, cinquiemeLigne),
+                    Size = new Size(70, 15)
+                };
 
-                //Label Sninpo = new Label
-                //{
-                //    Text = listPerso[i].getSninpo(),
-                //    Name = "Sninpo" + Convert.ToString(i),
-                //    Location = new Point(531, quatriemeLigne),
-                //    Size = new Size(70, 15)
-                //};
+                Label Sninpo = new Label
+                {
+                    Text = listPerso[i].getSninpo(),
+                    Name = "Sninpo" + Convert.ToString(i),
+                    Location = new Point(531, cinquiemeLigne),
+                    Size = new Size(170, 70)
+                };
 
-                //Label trait = new Label
-                //{
-                //    Text = "-------------------------------------------------",
-                //    Name = "---" + Convert.ToString(i),
-                //    Location = new Point(8, ligneLabel),
-                //    Size = new Size(547, 15)
-                //};
+                Label trait = new Label
+                {
+                    Text = "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+                    Name = "---" + Convert.ToString(i),
+                    Location = new Point(8, ligneLabel),
+                    Size = new Size(650, 15)
+                };
 
                 this.Controls.Add(picture);
                 this.Controls.Add(lbNomCarteText);
@@ -257,13 +258,18 @@ namespace PPE2
                 this.Controls.Add(NestRating);
                 this.Controls.Add(InvasionRating);
                 this.Controls.Add(PvpRating);
+                this.Controls.Add(NinpoText);
+                this.Controls.Add(Ninpo);
+                this.Controls.Add(SninpoText);
+                this.Controls.Add(Sninpo);
+                this.Controls.Add(trait);
 
-
-                premiereLigne = premiereLigne + 357;
-                deuxiemeLigne = deuxiemeLigne + 357;
-                troisiemeLigne = troisiemeLigne + 357;
-                quatriemeLigne = quatriemeLigne + 357;
-                ligneLabel = ligneLabel + 357;
+                premiereLigne = premiereLigne + 500;
+                deuxiemeLigne = deuxiemeLigne + 500;
+                troisiemeLigne = troisiemeLigne + 500;
+                quatriemeLigne = quatriemeLigne + 500;
+                cinquiemeLigne = cinquiemeLigne + 500;
+                ligneLabel = ligneLabel + 500;
 
 
             }

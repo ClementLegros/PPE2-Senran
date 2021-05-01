@@ -230,6 +230,7 @@ namespace PPE2
             this.btAutoTeam.TabIndex = 12;
             this.btAutoTeam.Text = "Valider";
             this.btAutoTeam.UseVisualStyleBackColor = true;
+            this.btAutoTeam.Click += new System.EventHandler(this.btAutoTeam_Click);
             // 
             // pictureBox2LogoCarte
             // 
@@ -278,6 +279,7 @@ namespace PPE2
             this.Controls.Add(this.groupBoxEquipe);
             this.Name = "formationEquipe";
             this.Text = "formationEquipe";
+            this.Load += new System.EventHandler(this.formationEquipe_Load);
             this.groupBoxEquipe.ResumeLayout(false);
             this.groupBoxEquipe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4LogoCarte)).EndInit();

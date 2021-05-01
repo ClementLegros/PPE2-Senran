@@ -68,5 +68,59 @@ namespace PPE2
         {
 
         }
+
+        private void buttonValider_Click(object sender, EventArgs e)
+        {
+            string modeDeJeux = "";
+
+            if(checkBoxInvasion.Checked)
+            {
+                checkBoxNest.Enabled = false;
+                checkBoxPvp.Enabled = false;
+                modeDeJeux = "INVASION_RATING";
+            }
+            if (checkBoxPvp.Checked)
+            {
+                checkBoxNest.Enabled = false;
+                checkBoxInvasion.Enabled = false;
+                modeDeJeux = "PVP_RATING";
+            }
+            if (checkBoxNest.Checked)
+            {
+                checkBoxInvasion.Enabled = false;
+                checkBoxPvp.Enabled = false;
+                modeDeJeux = "NEST_RATING";
+            }
+
+            string triTypePrincipale = (string)listBoxConditionPrincipaleType.SelectedItem;
+            string triCouleurPrincipale = (string)listBoxConditionPrincipaleCouleur.SelectedItem;
+
+            string triTypeSecondaire = (string)listBoxConditionSecondaireType.SelectedItem;
+            string triCouleurSecondaire = (string)listBoxConditionSecondaireCouleur.SelectedItem;
+
+            List<Personnage> persoRetourner = Connection.getListPersoForTeam(triTypePrincipale,triCouleurPrincipale,triTypeSecondaire,triCouleurSecondaire,modeDeJeux);
+            if(persoRetourner.Count < 5)
+            {
+                MessageBox.Show("Vous n'avez pas assez de personnage pour composer une équipe");
+            }
+            else
+            {
+                pictureBoxFormationAuto1.Load(persoRetourner[0].getLienImageLogo());
+                pictureBoxFormationAuto2.Load(persoRetourner[1].getLienImageLogo());
+                pictureBoxFormationAuto3.Load(persoRetourner[2].getLienImageLogo());
+                pictureBoxFormationAuto4.Load(persoRetourner[3].getLienImageLogo());
+                pictureBoxFormationAuto5.Load(persoRetourner[4].getLienImageLogo());
+
+                DialogResult dialogResult = MessageBox.Show("Voulez vous sauvegarder votre équipe ? ", "Sauvegarder", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //do something
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    //do something else
+                }
+            }
+        }
     }
 }
