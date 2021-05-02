@@ -9,7 +9,7 @@ namespace PPE2
     class Carte
     {
         private int noCarte;
-        private Personnage p;
+        private string personnage;
         private string nomCarte;
         private string ecole;
         private int forcePhy;
@@ -29,10 +29,10 @@ namespace PPE2
         private string logo;
         private string descriptif;
 
-        public Carte(int noCarte, Personnage p, string nomCarte, string ecole, int forcePhy, int puissanceOff, int defense, int agilite, string aptLeader, string aptPassif, string ninpo, string sninpo, string couleur, string type, int pvpRating, int nestRating, int invasionRating, string carteComplete, string logo, string descriptif)
+        public Carte(int noCarte, string personnage, string nomCarte, string ecole, int forcePhy, int puissanceOff, int defense, int agilite, string aptLeader, string aptPassif, string ninpo, string sninpo, string couleur, string type, string carteComplete, string logo, string descriptif)
         {
             this.noCarte = noCarte;
-            this.p = p;
+            this.personnage = personnage;
             this.nomCarte = nomCarte;
             this.ecole = ecole;
             this.forcePhy = forcePhy;
@@ -45,13 +45,24 @@ namespace PPE2
             this.sninpo = sninpo;
             this.couleur = couleur;
             this.type = type;
-            this.pvpRating = pvpRating;
-            this.nestRating = nestRating;
-            this.invasionRating = invasionRating;
             this.carteComplete = carteComplete;
             this.logo = logo;
             this.descriptif = descriptif;
         }
+
+        public override string ToString()
+        {
+            return personnage + " " + nomCarte;
+        }
+
+        public Carte(int noCarte, string logo, string personnage, string nomCarte)
+        {
+            this.noCarte = noCarte;
+            this.logo = logo;
+            this.personnage = personnage;
+            this.nomCarte = nomCarte;
+        }
+
 
         public Carte(int noCarte, string logo)
         {
@@ -59,6 +70,8 @@ namespace PPE2
             this.logo = logo;
         }
 
+
+        //GET
         public  string getNomCarteComplet()
         {
             return "";
@@ -69,9 +82,60 @@ namespace PPE2
             return noCarte;
         }
 
+        public string getEcole()
+        {
+            return ecole;
+        }
+
+        public string getLeader()
+        {
+            return aptLeader;
+        }
+
+        public string getPassif()
+        {
+            return aptPassif;
+        }
+
+        public int getForcePhy()
+        {
+            return forcePhy;
+        }
+
+        public int getPuissanceOff()
+        {
+            return puissanceOff;
+        }
+
+        public int getDefense()
+        {
+            return defense;
+        }
+
+        public int getAgilite()
+        {
+            return agilite;
+        }
+
+        public string getNinpo()
+        {
+            return ninpo;
+        }
+
+        public string getSninpo()
+        {
+            return sninpo;
+        }
+
         public string getLogo()
         {
             return logo;
+        }
+
+        //SET
+        public void setPvpRating(int rating)
+        {
+            this.pvpRating = rating;
         }
     }
 

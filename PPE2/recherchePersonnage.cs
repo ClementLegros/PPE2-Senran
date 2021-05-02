@@ -12,6 +12,7 @@ namespace PPE2
 {
     public partial class recherchePersonnage : Form
     {
+
         public recherchePersonnage()
         {
             InitializeComponent();

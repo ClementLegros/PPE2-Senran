@@ -12,7 +12,7 @@ namespace PPE2
 {
     public partial class ResultatRecherche : Form
     {
-        List<Personnage> listPerso;
+        List<Carte> listeCarte;
         public string couleur;
         public string type;
         public string ecole;
@@ -23,7 +23,7 @@ namespace PPE2
 
         private void ResultatRecherche_Load(object sender, EventArgs e)
         {
-            listPerso = Connection.getPersonnageRecherche(couleur, type, ecole);
+            listeCarte = Connection.getPersonnageRecherche(couleur, type, ecole);
 
             int premiereLigne = 64;
             int deuxiemeLigne = 125;
@@ -32,17 +32,18 @@ namespace PPE2
             int cinquiemeLigne = 450;
             int ligneLabel = 525;
 
-            for (int i = 0; i < listPerso.Count; i++)
+            for (int i = 0; i < listeCarte.Count; i++)
             {
                 PictureBox picture = new PictureBox
                 {
                     Name = "pictureBoxImgLogo"+Convert.ToString(i),
                     Location = new Point(13,premiereLigne),
                     SizeMode = PictureBoxSizeMode.StretchImage,
-                    Tag = listPerso[i].getNumeroCarte(),
-                    ImageLocation = listPerso[i].getLienImageLogo(),
+                    Tag = i,
+                    ImageLocation = listeCarte[i].getLogo(),
                     Size = new Size(100,75)
                 };
+                picture.MouseClick += new MouseEventHandler(picture_Click);
 
                 Label lbNomCarteText = new Label
                 {
@@ -54,7 +55,7 @@ namespace PPE2
 
                 Label lbNomCarte = new Label
                 {
-                    Text = listPerso[i].getNomCarte(),
+                    Text = listeCarte[i].ToString(),
                     Name = "LabelNomCarte" + Convert.ToString(i),
                     Location = new Point(170,premiereLigne),
                     Size = new Size(175, 15)
@@ -70,35 +71,38 @@ namespace PPE2
 
                 Label AptitudeLeader = new Label
                 {
-                    Text = listPerso[i].getAptLeader(),
+                    Text = listeCarte[i].getLeader(),
                     Name = "AptitudeLeader" + Convert.ToString(i),
-                    Location = new Point(477,premiereLigne),
+                    Location = new Point(477, premiereLigne),
                     Size = new Size(250, 60)
+
                 };
 
-                Label NestRating = new Label
-                {
-                    Text = "Nest Rating:" + Convert.ToString(listPerso[i].getNestRating()),
-                    Name = "NestRating" + Convert.ToString(i),
-                    Location = new Point(750, premiereLigne),
-                    Size = new Size(100, 15)
-                };
+                
 
-                Label InvasionRating = new Label
-                {
-                    Text = "Invasion Rating:" + Convert.ToString(listPerso[i].getInvasionRating()),
-                    Name = "InvasionRating" + Convert.ToString(i),
-                    Location = new Point(880, premiereLigne),
-                    Size = new Size(180, 15)
-                };
+                //Label NestRating = new Label
+                //{
+                //    Text = "Nest Rating:" + Convert.ToString(listPerso[i].getNestRating()),
+                //    Name = "NestRating" + Convert.ToString(i),
+                //    Location = new Point(750, premiereLigne),
+                //    Size = new Size(100, 15)
+                //};
 
-                Label PvpRating = new Label
-                {
-                    Text = "PVP Rating:" + Convert.ToString(listPerso[i].getPvpRating()),
-                    Name = "PvpRating" + Convert.ToString(i),
-                    Location = new Point(750, deuxiemeLigne),
-                    Size = new Size(100, 15)
-                };
+                //Label InvasionRating = new Label
+                //{
+                //    Text = "Invasion Rating:" + Convert.ToString(listPerso[i].getInvasionRating()),
+                //    Name = "InvasionRating" + Convert.ToString(i),
+                //    Location = new Point(880, premiereLigne),
+                //    Size = new Size(180, 15)
+                //};
+
+                //Label PvpRating = new Label
+                //{
+                //    Text = "PVP Rating:" + Convert.ToString(listPerso[i].getPvpRating()),
+                //    Name = "PvpRating" + Convert.ToString(i),
+                //    Location = new Point(750, deuxiemeLigne),
+                //    Size = new Size(100, 15)
+                //};
 
                 Label EcoleText = new Label
                 {
@@ -108,7 +112,7 @@ namespace PPE2
                     Size = new Size(70, 15)
                 };
 
-                MessageBox.Show(listPerso[i].getEcole());
+                MessageBox.Show(listeCarte[i].getEcole());
                 Label Ecole = new Label
                 {
                     Text = ecole,
@@ -127,7 +131,7 @@ namespace PPE2
 
                 Label AptitudePassif = new Label
                 {
-                    Text = listPerso[i].getAptPassif(),
+                    Text = listeCarte[i].getPassif(),
                     Name = "AptitudePassif" + Convert.ToString(i),
                     Location = new Point(477, deuxiemeLigne),
                     Size = new Size(250, 130)
@@ -142,7 +146,7 @@ namespace PPE2
                 };
                 Label ForcePhysique = new Label
                 {
-                    Text = Convert.ToString(listPerso[i].getForcePhy()),
+                    Text = Convert.ToString(listeCarte[i].getForcePhy()),
                     Name = "ForcePhysique" + Convert.ToString(i),
                     Location = new Point(125, troisiemeLigne),
                     Size = new Size(40, 15)
@@ -158,7 +162,7 @@ namespace PPE2
 
                 Label Defense = new Label
                 {
-                    Text = Convert.ToString(listPerso[i].getDefense()),
+                    Text = Convert.ToString(listeCarte[i].getDefense()),
                     Name = "Defense" + Convert.ToString(i),
                     Location = new Point(364, troisiemeLigne),
                     Size = new Size(70, 15)
@@ -174,7 +178,7 @@ namespace PPE2
 
                 Label PuissanceOffensive = new Label
                 {
-                    Text = Convert.ToString(listPerso[i].getPuissanceOff()),
+                    Text = Convert.ToString(listeCarte[i].getPuissanceOff()),
                     Name = "PuissanceOffensive" + Convert.ToString(i),
                     Location = new Point(172, quatriemeLigne),
                     Size = new Size(40, 15)
@@ -190,7 +194,7 @@ namespace PPE2
 
                 Label Vitesse = new Label
                 {
-                    Text = Convert.ToString(listPerso[i].getAgilite()),
+                    Text = Convert.ToString(listeCarte[i].getAgilite()),
                     Name = "Vitesse" + Convert.ToString(i),
                     Location = new Point(364, quatriemeLigne),
                     Size = new Size(70, 15)
@@ -206,7 +210,7 @@ namespace PPE2
 
                 Label Ninpo = new Label
                 {
-                    Text = listPerso[i].getNinpo(),
+                    Text = listeCarte[i].getNinpo(),
                     Name = "NinpoText" + Convert.ToString(i),
                     Location = new Point(150, cinquiemeLigne),
                     Size = new Size(170, 70)
@@ -224,7 +228,7 @@ namespace PPE2
 
                 Label Sninpo = new Label
                 {
-                    Text = listPerso[i].getSninpo(),
+                    Text = listeCarte[i].getSninpo(),
                     Name = "Sninpo" + Convert.ToString(i),
                     Location = new Point(531, cinquiemeLigne),
                     Size = new Size(170, 70)
@@ -255,9 +259,9 @@ namespace PPE2
                 this.Controls.Add(Defense);
                 this.Controls.Add(VitesseText);
                 this.Controls.Add(Vitesse);
-                this.Controls.Add(NestRating);
-                this.Controls.Add(InvasionRating);
-                this.Controls.Add(PvpRating);
+                //this.Controls.Add(NestRating);
+                //this.Controls.Add(InvasionRating);
+                //this.Controls.Add(PvpRating);
                 this.Controls.Add(NinpoText);
                 this.Controls.Add(Ninpo);
                 this.Controls.Add(SninpoText);
@@ -274,6 +278,16 @@ namespace PPE2
 
             }
             
+        }
+
+        void picture_Click(object sender, EventArgs e)
+        {
+            PictureBox pb = sender as PictureBox;
+            int index = Convert.ToInt32(pb.Tag);
+            Carte carteRecup = listeCarte[index];
+            DetailsCarte dc = new DetailsCarte();
+            dc.imgCarte = carteRecup.getLogo();
+            dc.Show();
         }
     }
 }

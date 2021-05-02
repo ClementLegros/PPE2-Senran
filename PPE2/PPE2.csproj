@@ -107,11 +107,11 @@
     <Compile Include="Administrateur.Designer.cs">
       <DependentUpon>Administrateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="ajoutPersonnageUtilisateur.cs">
+    <Compile Include="ModificationCollectionUtilisateur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ajoutPersonnageUtilisateur.Designer.cs">
-      <DependentUpon>ajoutPersonnageUtilisateur.cs</DependentUpon>
+    <Compile Include="ModificationCollectionUtilisateur.Designer.cs">
+      <DependentUpon>ModificationCollectionUtilisateur.cs</DependentUpon>
     </Compile>
     <Compile Include="Carte.cs" />
     <Compile Include="collection.cs" />
@@ -179,8 +179,8 @@
     <EmbeddedResource Include="Administrateur.resx">
       <DependentUpon>Administrateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ajoutPersonnageUtilisateur.resx">
-      <DependentUpon>ajoutPersonnageUtilisateur.cs</DependentUpon>
+    <EmbeddedResource Include="ModificationCollectionUtilisateur.resx">
+      <DependentUpon>ModificationCollectionUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseAccueil.resx">
       <DependentUpon>BaseAccueil.cs</DependentUpon>

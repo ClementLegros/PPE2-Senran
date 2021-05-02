@@ -44,12 +44,30 @@ namespace PPE2
 
 
         //Ajoute un personnage dans la collection de l'utilisateur
-        public static int ajouterPersonnageToUser(Personnage p, int idUser)
+        public static bool ajouterPersonnageToUser(Carte c, string noUser)
         {
-            int numeroCarte = p.getNumeroCarte();
+            
             MySqlCommand cmd = conn.CreateCommand();
-            string reqI = "INSERT INTO Collection(NO_JOUEUR,NO_CARTE) WHERE NO_JOUEUR ='" + idUser + "' AND NO_CARTE = '" + numeroCarte + "'";
-            return 0;
+            string reqI = "CALL addCarteToCollection('"+ c.getNoCarte() +"','"+ noUser+"')";
+            cmd.CommandText = reqI;
+            int nbMaj = cmd.ExecuteNonQuery();
+            return (nbMaj == 1);
+        }
+
+        public static List<Carte> getCarteNonPossederParUser(string idUser)
+        {
+            List<Carte> listeCarte = new List<Carte>();
+            MySqlCommand cmd = conn.CreateCommand();
+            String reqI = "CALL getPersoNonPossedeParUser('" + idUser + "')";
+            cmd.CommandText = reqI;
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                Carte carteRecup = new Carte((int)rdr["NO_CARTE"], (string)rdr["LOGO"], (string)rdr["NOM_PERSONNAGE"], (string)rdr["NOM_CARTE"]);
+                listeCarte.Add(carteRecup);
+            }
+            rdr.Close();
+            return listeCarte;
         }
 
         //Récupère toute les Cartes du jeux sans exception
@@ -126,8 +144,8 @@ namespace PPE2
             while (rdr.Read())
             {
                 //Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],
-                                                            //(string)rdr["NOM_CARTE"],
-                                                            //(string)rdr["LienLogoImage"]);
+                //(string)rdr["NOM_CARTE"],
+                //(string)rdr["LienLogoImage"]);
 
                 //listPerso.Add(personnageRecup);
 
@@ -139,8 +157,8 @@ namespace PPE2
                 while (rdr.Read())
                 {
                     //Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],
-                                                            //(string)rdr["NOM_CARTE"],
-                                                            //(string)rdr["LienLogoImage"]);
+                    //(string)rdr["NOM_CARTE"],
+                    //(string)rdr["LienLogoImage"]);
                     //listPerso.Add(personnageRecup);
 
                 }
@@ -160,20 +178,22 @@ namespace PPE2
             return (nbMaj == 1);
         }
 
-        public static List<Personnage> getPersonnageRecherche(string couleur, string type, string ecole)
+        public static List<Carte> getPersonnageRecherche(string couleur, string type, string ecole)
         {
-            List<Personnage> listPersonnageRecherche = new List<Personnage>();
+            List<Carte> listeCarte = new List<Carte>();
             MySqlCommand cmd = conn.CreateCommand();
             String reqI = "CALL GetPersoRecherche('" + couleur + "','" + type + "','" + ecole + "')";
             cmd.CommandText = reqI;
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
+                Carte carteRecup = new Carte((int)rdr["NO_CARTE"], (string)rdr["NOM_PERSONNAGE"], (string)rdr["NOM_CARTE"], (string)rdr["NOM_ECOLE"], (int)rdr["FORCE_PHYSIQUE"], (int)rdr["PUISSANCE_OFFENSIVE"], (int)rdr["DEFENSE"], (int)rdr["AGILITE"], (string)rdr["APT_LEADER"], (string)rdr["EFFET_PASSIF"] ,(string)rdr["NINPO"], (string)rdr["SNINPO"], (string)rdr["COULEUR"], (string)rdr["TYPE"],(string)rdr["CARTE_COMPLETE"], (string)rdr["LOGO"], (string)rdr["DESCRIPTION"]);
+                listeCarte.Add(carteRecup);
                 //Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"], (string)rdr["NOM_CARTE"], (string)rdr["NOM_ECOLE"], (int)rdr["Force_Physique"], (int)rdr["Puissance_Offensive"], (int)rdr["Defense"], (int)rdr["Agilite"], (string)rdr["EFFET_LEADER"], (string)rdr["EFFET_PASSIF"], (string)rdr["Ninja"], (string)rdr["Secret"], (string)rdr["COULEUR"], (string)rdr["TYPE"], (int)rdr["PVP_RATING"], (int)rdr["NEST_RATING"], (int)rdr["INVASION_RATING"], (string)rdr["LienCarteImage"], (string)rdr["LienLogoImage"]);
                 //listPersonnageRecherche.Add(personnageRecup);
             }
             rdr.Close();
-            return listPersonnageRecherche;
+            return listeCarte;
 
         }
 

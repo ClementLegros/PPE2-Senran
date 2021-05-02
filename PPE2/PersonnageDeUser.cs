@@ -73,7 +73,13 @@ namespace PPE2
 
         private void buttonAjouterPerso_Click(object sender, EventArgs e)
         {
-
+            ModificationCollectionUtilisateur ajtPersoUser = new ModificationCollectionUtilisateur();
+            ajtPersoUser.noUser = this.noUser;
+            this.Hide();
+            ajtPersoUser.Show();
+            
         }
+
+        
     }
 }
