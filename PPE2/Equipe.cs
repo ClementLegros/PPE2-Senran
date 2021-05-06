@@ -105,11 +105,11 @@ namespace PPE2
             }
             else
             {
-                pictureBoxFormationAuto1.Load(persoRetourner[0].getLienImageLogo());
-                pictureBoxFormationAuto2.Load(persoRetourner[1].getLienImageLogo());
-                pictureBoxFormationAuto3.Load(persoRetourner[2].getLienImageLogo());
-                pictureBoxFormationAuto4.Load(persoRetourner[3].getLienImageLogo());
-                pictureBoxFormationAuto5.Load(persoRetourner[4].getLienImageLogo());
+                //pictureBoxFormationAuto1.Load(persoRetourner[0].getLienImageLogo());
+                //pictureBoxFormationAuto2.Load(persoRetourner[1].getLienImageLogo());
+                //pictureBoxFormationAuto3.Load(persoRetourner[2].getLienImageLogo());
+                //pictureBoxFormationAuto4.Load(persoRetourner[3].getLienImageLogo());
+                //pictureBoxFormationAuto5.Load(persoRetourner[4].getLienImageLogo());
 
                 DialogResult dialogResult = MessageBox.Show("Voulez vous sauvegarder votre équipe ? ", "Sauvegarder", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)

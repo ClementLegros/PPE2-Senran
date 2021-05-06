@@ -23,10 +23,19 @@ namespace PPE2
 
         private void ModificationCollectionUtilisateur_Load(object sender, EventArgs e)
         {
-            if(operation == "AJOUTER")
+            listBoxAjouterPersonnage.Items.Clear();
+
+            if (operation == "AJOUTER")
             {
-                listBoxAjouterPersonnage.Items.Clear();
                 listBoxAjouterPersonnage.Items.AddRange(Connection.getCarteNonPossederParUser(noUser).ToArray());
+            }
+            else if (operation == "SUPPRIMER")
+            {
+                listBoxAjouterPersonnage.Items.AddRange(Connection.getPersonnageDeUser(noUser).ToArray());
+            }
+            else
+            {
+                MessageBox.Show("An UFO as been detected", "Anomaly", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
@@ -35,21 +44,17 @@ namespace PPE2
         {
             if(aEteModifier)
             {
-                MessageBox.Show("La modification à bien réussi");
+                MessageBox.Show("La modification est un succès", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 aEteModifier = false;
             }
             else
             {
-                if(operation == "AJOUTER")
-                {
-                    Carte carteRecup = (Carte)listBoxAjouterPersonnage.SelectedItem;
-                    this.pictureBoxCarte.Load(carteRecup.getLogo());
-                    this.labelNomCarte.Text = carteRecup.ToString();
-                    this.pictureBoxCarte.Visible = true;
-                    this.labelNomCarte.Visible = true;
-                    this.buttonAjouterCarteToUser.Visible = true;
-                }
-                
+                Carte carteRecup = (Carte)listBoxAjouterPersonnage.SelectedItem;
+                this.pictureBoxCarte.Load(carteRecup.getLogo());
+                this.labelNomCarte.Text = carteRecup.ToString();
+                this.pictureBoxCarte.Visible = true;
+                this.labelNomCarte.Visible = true;
+                this.buttonAjouterCarteToUser.Visible = true;             
             }
             
             
@@ -70,7 +75,22 @@ namespace PPE2
                 }
                 else
                 {
-                    MessageBox.Show("L'ajout n'a pas marché");
+                    MessageBox.Show("L'ajout n'a pas réussi", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                if(Connection.deleteCarteToUser(carteRecup, noUser))
+                {
+                    this.pictureBoxCarte.Visible = false;
+                    this.labelNomCarte.Visible = false;
+                    this.buttonAjouterCarteToUser.Visible = false;
+                    aEteModifier = true;
+                    this.listBoxAjouterPersonnage.Items.Remove(carteRecup);
+                }
+                else
+                {
+                    MessageBox.Show("La supression n'a pas réussi", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -78,7 +98,7 @@ namespace PPE2
 
         private void buttonRetour_Click(object sender, EventArgs e)
         {
-            PersonnageDeUser pdu = new PersonnageDeUser();
+            CarteDeUser pdu = new CarteDeUser();
             pdu.noUser = this.noUser;
             this.Hide();
             pdu.Show();

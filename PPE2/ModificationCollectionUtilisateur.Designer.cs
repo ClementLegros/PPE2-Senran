@@ -92,7 +92,7 @@ namespace PPE2
             this.buttonAjouterCarteToUser.Name = "buttonAjouterCarteToUser";
             this.buttonAjouterCarteToUser.Size = new System.Drawing.Size(126, 29);
             this.buttonAjouterCarteToUser.TabIndex = 5;
-            this.buttonAjouterCarteToUser.Text = "Ajouter";
+            this.buttonAjouterCarteToUser.Text = "Valider";
             this.buttonAjouterCarteToUser.UseVisualStyleBackColor = true;
             this.buttonAjouterCarteToUser.Visible = false;
             this.buttonAjouterCarteToUser.Click += new System.EventHandler(this.buttonAjouterCarteToUser_Click);

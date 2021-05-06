@@ -38,7 +38,7 @@ namespace PPE2
 
         private void btMenuPersonnage_Click(object sender, EventArgs e)
         {
-            PersonnageDeUser pdu = new PersonnageDeUser();
+            CarteDeUser pdu = new CarteDeUser();
             pdu.noUser = idUser;
             pdu.Show();
         }
@@ -120,6 +120,12 @@ namespace PPE2
         {
             Equipe ep = new Equipe();
             ep.Show();
+        }
+
+        private void buttonPersonnage_Click(object sender, EventArgs e)
+        {
+            PersonnageInfo pi = new PersonnageInfo();
+            pi.Show();
         }
     }
 }

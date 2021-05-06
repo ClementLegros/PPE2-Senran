@@ -44,6 +44,7 @@ namespace PPE2
             this.pictureBoxDernierPersoSorti2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxDernierPersoSorti1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.buttonPersonnage = new System.Windows.Forms.Button();
             this.groupBoxMenu.SuspendLayout();
             this.groupBoxPersonnageNouveau.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDernierPersoSorti6)).BeginInit();
@@ -60,12 +61,13 @@ namespace PPE2
             this.btMenuPersonnage.Name = "btMenuPersonnage";
             this.btMenuPersonnage.Size = new System.Drawing.Size(112, 26);
             this.btMenuPersonnage.TabIndex = 0;
-            this.btMenuPersonnage.Text = "Personnage";
+            this.btMenuPersonnage.Text = "Collection";
             this.btMenuPersonnage.UseVisualStyleBackColor = true;
             this.btMenuPersonnage.Click += new System.EventHandler(this.btMenuPersonnage_Click);
             // 
             // groupBoxMenu
             // 
+            this.groupBoxMenu.Controls.Add(this.buttonPersonnage);
             this.groupBoxMenu.Controls.Add(this.buttonRecherche);
             this.groupBoxMenu.Controls.Add(this.btMenuPersonnage);
             this.groupBoxMenu.Controls.Add(this.btMenuEquip);
@@ -191,6 +193,17 @@ namespace PPE2
             this.label7.TabIndex = 17;
             this.label7.Text = resources.GetString("label7.Text");
             // 
+            // buttonPersonnage
+            // 
+            this.buttonPersonnage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPersonnage.Location = new System.Drawing.Point(371, 29);
+            this.buttonPersonnage.Name = "buttonPersonnage";
+            this.buttonPersonnage.Size = new System.Drawing.Size(118, 26);
+            this.buttonPersonnage.TabIndex = 3;
+            this.buttonPersonnage.Text = "Personnage";
+            this.buttonPersonnage.UseVisualStyleBackColor = true;
+            this.buttonPersonnage.Click += new System.EventHandler(this.buttonPersonnage_Click);
+            // 
             // AccueilUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,5 +246,6 @@ namespace PPE2
         private System.Windows.Forms.PictureBox pictureBoxDernierPersoSorti1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonRecherche;
+        private System.Windows.Forms.Button buttonPersonnage;
     }
 }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PPE2
 {
-    public partial class PersonnageDeUser : Form
+    public partial class CarteDeUser : Form
     {
         public string noUser;
         List<Carte> listeCarte;
@@ -18,7 +18,7 @@ namespace PPE2
 
 
 
-        public PersonnageDeUser()
+        public CarteDeUser()
         {
             InitializeComponent();
         }
@@ -75,11 +75,20 @@ namespace PPE2
         {
             ModificationCollectionUtilisateur ajtPersoUser = new ModificationCollectionUtilisateur();
             ajtPersoUser.noUser = this.noUser;
+            ajtPersoUser.operation = "AJOUTER";
+
             this.Hide();
             ajtPersoUser.Show();
             
         }
 
-        
+        private void buttonSupprimerCarte_Click(object sender, EventArgs e)
+        {
+            ModificationCollectionUtilisateur ajtPersoUser = new ModificationCollectionUtilisateur();
+            ajtPersoUser.noUser = this.noUser;
+            ajtPersoUser.operation = "SUPPRIMER";
+            this.Hide();
+            ajtPersoUser.Show();
+        }
     }
 }

@@ -54,6 +54,16 @@ namespace PPE2
             return (nbMaj == 1);
         }
 
+        public static bool deleteCarteToUser(Carte c, string noUser)
+        {
+
+            MySqlCommand cmd = conn.CreateCommand();
+            string reqI = "CALL deletePersoDeUser('" + noUser + "','" + c.getNoCarte() + "')";
+            cmd.CommandText = reqI;
+            int nbMaj = cmd.ExecuteNonQuery();
+            return (nbMaj == 1);
+        }
+
         public static List<Carte> getCarteNonPossederParUser(string idUser)
         {
             List<Carte> listeCarte = new List<Carte>();
@@ -68,6 +78,22 @@ namespace PPE2
             }
             rdr.Close();
             return listeCarte;
+        }
+
+        public static List<Personnage> getPersonnage()
+        {
+            List<Personnage> listePersonnage = new List<Personnage>();
+            MySqlCommand cmd = conn.CreateCommand();
+            String reqI = "CALL getToutLesPersonnages()";
+            cmd.CommandText = reqI;
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                Personnage persoRecup = new Personnage((string)rdr["NOM_PERSONNAGE"], (string)rdr["NOM_ECOLE"], (int)rdr["TAILLE"], (int)rdr["AGE"],(string)rdr["LOGO_CHIBI"]);
+                listePersonnage.Add(persoRecup);
+            }
+            rdr.Close();
+            return listePersonnage;
         }
 
         //Récupère toute les Cartes du jeux sans exception
@@ -113,7 +139,7 @@ namespace PPE2
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Carte carteRecup = new Carte((int)rdr["NO_CARTE"], (string)rdr["LOGO"]);
+                Carte carteRecup = new Carte((int)rdr["NO_CARTE"], (string)rdr["LOGO"], (string)rdr["NOM_PERSONNAGE"], (string)rdr["NOM_CARTE"]);
                 listeCarte.Add(carteRecup);
             }
             rdr.Close();
@@ -167,16 +193,7 @@ namespace PPE2
             return listPerso;
         }
 
-        public static bool ajouterPersonnage(Personnage p)
-        {
-            string getEcole = p.getEcole();
-
-            MySqlCommand cmd = conn.CreateCommand();
-            string reqI = "INSERT INTO CARTE VALUES(" + null + " ,'" + p.getNomCarte() + "',')";
-            cmd.CommandText = reqI;
-            int nbMaj = cmd.ExecuteNonQuery();
-            return (nbMaj == 1);
-        }
+        
 
         public static List<Carte> getPersonnageRecherche(string couleur, string type, string ecole)
         {

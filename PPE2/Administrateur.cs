@@ -40,27 +40,27 @@ namespace PPE2
             buttonValiderModification.Enabled = true;
             Personnage persoAmodifier = (Personnage)listBoxAdministrateurPersonnage.SelectedItem;
 
-            textBoxAjouterNomPersonnage.Text = persoAmodifier.getNomCarte();
-            textBoxAjouterCouleur.Text = persoAmodifier.getCouleur();
-            textBoxAjouterEcole.Text = persoAmodifier.getEcole();
-            textBoxAjouterType.Text = persoAmodifier.getType();
+            //textBoxAjouterNomPersonnage.Text = persoAmodifier.getNomCarte();
+            //textBoxAjouterCouleur.Text = persoAmodifier.getCouleur();
+            //textBoxAjouterEcole.Text = persoAmodifier.getEcole();
+            //textBoxAjouterType.Text = persoAmodifier.getType();
 
-            textBoxAjouterPtdLeader.Text = persoAmodifier.getAptLeader();
-            textBoxAjouterPassif.Text = persoAmodifier.getAptPassif();
-            textBoxAjouterNinja.Text = persoAmodifier.getNinpo();
-            textBoxAjouterNinjaSecret.Text = persoAmodifier.getSninpo();
+            //textBoxAjouterPtdLeader.Text = persoAmodifier.getAptLeader();
+            //textBoxAjouterPassif.Text = persoAmodifier.getAptPassif();
+            //textBoxAjouterNinja.Text = persoAmodifier.getNinpo();
+            //textBoxAjouterNinjaSecret.Text = persoAmodifier.getSninpo();
 
-            textBoxAjouterForcePhy.Text = Convert.ToString(persoAmodifier.getForcePhy());
-            textBoxAjouterPuissanceOff.Text = Convert.ToString(persoAmodifier.getPuissanceOff());
-            textBoxAjouterDefense.Text = Convert.ToString(persoAmodifier.getDefense());
-            textBoxAjouterAgilite.Text = Convert.ToString(persoAmodifier.getAgilite());
+            //textBoxAjouterForcePhy.Text = Convert.ToString(persoAmodifier.getForcePhy());
+            //textBoxAjouterPuissanceOff.Text = Convert.ToString(persoAmodifier.getPuissanceOff());
+            //textBoxAjouterDefense.Text = Convert.ToString(persoAmodifier.getDefense());
+            //textBoxAjouterAgilite.Text = Convert.ToString(persoAmodifier.getAgilite());
 
-            textBoxAjouterRankInvasion.Text = Convert.ToString(persoAmodifier.getInvasionRating());
-            textBoxAjouterRankNest.Text = Convert.ToString(persoAmodifier.getNestRating());
-            textBoxAjouterRankPVP.Text = Convert.ToString(persoAmodifier.getPvpRating());
+            //textBoxAjouterRankInvasion.Text = Convert.ToString(persoAmodifier.getInvasionRating());
+            //textBoxAjouterRankNest.Text = Convert.ToString(persoAmodifier.getNestRating());
+            //textBoxAjouterRankPVP.Text = Convert.ToString(persoAmodifier.getPvpRating());
 
-            textBoxAjouterLienImageCarte.Text = persoAmodifier.getLienImageCarte();
-            textBoxAjouterLogoCarte.Text = persoAmodifier.getLienImageLogo();
+            //textBoxAjouterLienImageCarte.Text = persoAmodifier.getLienImageCarte();
+            //textBoxAjouterLogoCarte.Text = persoAmodifier.getLienImageLogo();
         }
 
         private void Administrateur_Load(object sender, EventArgs e)
