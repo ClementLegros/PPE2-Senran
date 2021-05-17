@@ -77,19 +77,19 @@ namespace PPE2
             {
                 checkBoxNest.Enabled = false;
                 checkBoxPvp.Enabled = false;
-                modeDeJeux = "INVASION_RATING";
+                modeDeJeux = "INVASION";
             }
             if (checkBoxPvp.Checked)
             {
                 checkBoxNest.Enabled = false;
                 checkBoxInvasion.Enabled = false;
-                modeDeJeux = "PVP_RATING";
+                modeDeJeux = "PVP";
             }
             if (checkBoxNest.Checked)
             {
                 checkBoxInvasion.Enabled = false;
                 checkBoxPvp.Enabled = false;
-                modeDeJeux = "NEST_RATING";
+                modeDeJeux = "NEST";
             }
 
             string triTypePrincipale = (string)listBoxConditionPrincipaleType.SelectedItem;
@@ -98,29 +98,29 @@ namespace PPE2
             string triTypeSecondaire = (string)listBoxConditionSecondaireType.SelectedItem;
             string triCouleurSecondaire = (string)listBoxConditionSecondaireCouleur.SelectedItem;
 
-            List<Personnage> persoRetourner = Connection.getListPersoForTeam(triTypePrincipale,triCouleurPrincipale,triTypeSecondaire,triCouleurSecondaire,modeDeJeux);
-            if(persoRetourner.Count < 5)
-            {
-                MessageBox.Show("Vous n'avez pas assez de personnage pour composer une équipe");
-            }
-            else
-            {
-                //pictureBoxFormationAuto1.Load(persoRetourner[0].getLienImageLogo());
-                //pictureBoxFormationAuto2.Load(persoRetourner[1].getLienImageLogo());
-                //pictureBoxFormationAuto3.Load(persoRetourner[2].getLienImageLogo());
-                //pictureBoxFormationAuto4.Load(persoRetourner[3].getLienImageLogo());
-                //pictureBoxFormationAuto5.Load(persoRetourner[4].getLienImageLogo());
+            List<Carte> listCarte = Connection.getListCarteForTeam(triTypePrincipale,triCouleurPrincipale,triTypeSecondaire,triCouleurSecondaire,modeDeJeux);
+            //if(listCarte.Count < 5)
+            //{
+            //    MessageBox.Show("Vous n'avez pas assez de personnage pour composer une équipe");
+            //}
+            //else
+            //{
+                pictureBoxFormationAuto1.Load(listCarte[0].getLogo());
+                pictureBoxFormationAuto2.Load(listCarte[1].getLogo());
+                //pictureBoxFormationAuto3.Load(listCarte[2].getLogo());
+                //pictureBoxFormationAuto4.Load(listCarte[3].getLogo());
+                //pictureBoxFormationAuto5.Load(listCarte[4].getLogo());
 
-                DialogResult dialogResult = MessageBox.Show("Voulez vous sauvegarder votre équipe ? ", "Sauvegarder", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    //do something
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    //do something else
-                }
-            }
+            //    DialogResult dialogResult = MessageBox.Show("Voulez vous sauvegarder votre équipe ? ", "Sauvegarder", MessageBoxButtons.YesNo);
+            //    if (dialogResult == DialogResult.Yes)
+            //    {
+            //        //do something
+            //    }
+            //    else if (dialogResult == DialogResult.No)
+            //    {
+            //        //do something else
+            //    }
+            //}
         }
     }
 }

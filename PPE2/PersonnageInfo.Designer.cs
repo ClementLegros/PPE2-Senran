@@ -63,7 +63,7 @@ namespace PPE2
             // labelAge
             // 
             this.labelAge.AutoSize = true;
-            this.labelAge.Location = new System.Drawing.Point(376, 111);
+            this.labelAge.Location = new System.Drawing.Point(361, 108);
             this.labelAge.Name = "labelAge";
             this.labelAge.Size = new System.Drawing.Size(33, 18);
             this.labelAge.TabIndex = 2;
@@ -73,7 +73,7 @@ namespace PPE2
             // labelTaille
             // 
             this.labelTaille.AutoSize = true;
-            this.labelTaille.Location = new System.Drawing.Point(376, 147);
+            this.labelTaille.Location = new System.Drawing.Point(361, 144);
             this.labelTaille.Name = "labelTaille";
             this.labelTaille.Size = new System.Drawing.Size(42, 18);
             this.labelTaille.TabIndex = 3;
@@ -84,7 +84,7 @@ namespace PPE2
             // 
             this.labelNomPersonnage.AutoSize = true;
             this.labelNomPersonnage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNomPersonnage.Location = new System.Drawing.Point(376, 73);
+            this.labelNomPersonnage.Location = new System.Drawing.Point(361, 70);
             this.labelNomPersonnage.Name = "labelNomPersonnage";
             this.labelNomPersonnage.Size = new System.Drawing.Size(92, 18);
             this.labelNomPersonnage.TabIndex = 4;
@@ -95,7 +95,8 @@ namespace PPE2
             // 
             this.pictureBoxChibiPersonnage.Location = new System.Drawing.Point(213, 73);
             this.pictureBoxChibiPersonnage.Name = "pictureBoxChibiPersonnage";
-            this.pictureBoxChibiPersonnage.Size = new System.Drawing.Size(157, 126);
+            this.pictureBoxChibiPersonnage.Size = new System.Drawing.Size(128, 112);
+            this.pictureBoxChibiPersonnage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxChibiPersonnage.TabIndex = 5;
             this.pictureBoxChibiPersonnage.TabStop = false;
             this.pictureBoxChibiPersonnage.Visible = false;
@@ -103,7 +104,7 @@ namespace PPE2
             // labelEcole
             // 
             this.labelEcole.AutoSize = true;
-            this.labelEcole.Location = new System.Drawing.Point(376, 181);
+            this.labelEcole.Location = new System.Drawing.Point(361, 178);
             this.labelEcole.Name = "labelEcole";
             this.labelEcole.Size = new System.Drawing.Size(46, 18);
             this.labelEcole.TabIndex = 6;
@@ -114,7 +115,7 @@ namespace PPE2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 623);
+            this.ClientSize = new System.Drawing.Size(580, 623);
             this.Controls.Add(this.labelEcole);
             this.Controls.Add(this.pictureBoxChibiPersonnage);
             this.Controls.Add(this.labelNomPersonnage);

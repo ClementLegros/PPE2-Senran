@@ -72,9 +72,9 @@ namespace PPE2
 
 
         //GET
-        public  string getNomCarteComplet()
+        public  string getPersonnage()
         {
-            return "";
+            return personnage;
         }
 
         public int getNoCarte()
@@ -85,6 +85,16 @@ namespace PPE2
         public string getEcole()
         {
             return ecole;
+        }
+
+        public string getNomCarte()
+        {
+            return nomCarte;
+        }
+
+        public string getCouleur()
+        {
+            return couleur;
         }
 
         public string getLeader()
@@ -127,9 +137,19 @@ namespace PPE2
             return sninpo;
         }
 
+        public string getCarteComplete()
+        {
+            return carteComplete;
+        }
+
         public string getLogo()
         {
             return logo;
+        }
+
+        public string getDescription()
+        {
+            return descriptif;
         }
 
         //SET

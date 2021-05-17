@@ -30,7 +30,7 @@ namespace PPE2
             Personnage perso = (Personnage)listBoxPersonnage.SelectedItem;
             pictureBoxChibiPersonnage.Load(perso.getLogoChibi());
             labelNomPersonnage.Text = perso.getNomPersonnage();
-            labelAge.Text = Convert.ToString(perso.getAge());
+            labelAge.Text = Convert.ToString(perso.getAge()) + " ans";
             labelEcole.Text = perso.getEcole();
             labelTaille.Text = Convert.ToString(perso.getTaille()) + "cm";
 
@@ -40,6 +40,7 @@ namespace PPE2
             labelTaille.Visible = true;
             labelAge.Visible = true;
             labelTaille.Visible = true;
+            labelEcole.Visible = true;
         }
     }
 }

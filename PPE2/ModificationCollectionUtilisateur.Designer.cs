@@ -36,6 +36,7 @@ namespace PPE2
             this.labelNomCarte = new System.Windows.Forms.Label();
             this.buttonAjouterCarteToUser = new System.Windows.Forms.Button();
             this.buttonRetour = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCarte)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@ namespace PPE2
             // listBoxAjouterPersonnage
             // 
             this.listBoxAjouterPersonnage.FormattingEnabled = true;
-            this.listBoxAjouterPersonnage.Location = new System.Drawing.Point(12, 83);
+            this.listBoxAjouterPersonnage.Location = new System.Drawing.Point(12, 138);
             this.listBoxAjouterPersonnage.Name = "listBoxAjouterPersonnage";
             this.listBoxAjouterPersonnage.Size = new System.Drawing.Size(188, 368);
             this.listBoxAjouterPersonnage.TabIndex = 1;
@@ -60,14 +61,15 @@ namespace PPE2
             // 
             // textBoxRecherchePersonnage
             // 
-            this.textBoxRecherchePersonnage.Location = new System.Drawing.Point(12, 57);
+            this.textBoxRecherchePersonnage.Location = new System.Drawing.Point(12, 102);
             this.textBoxRecherchePersonnage.Name = "textBoxRecherchePersonnage";
             this.textBoxRecherchePersonnage.Size = new System.Drawing.Size(188, 20);
             this.textBoxRecherchePersonnage.TabIndex = 2;
+            this.textBoxRecherchePersonnage.TextChanged += new System.EventHandler(this.textBoxRecherchePersonnage_TextChanged);
             // 
             // pictureBoxCarte
             // 
-            this.pictureBoxCarte.Location = new System.Drawing.Point(233, 83);
+            this.pictureBoxCarte.Location = new System.Drawing.Point(233, 138);
             this.pictureBoxCarte.Name = "pictureBoxCarte";
             this.pictureBoxCarte.Size = new System.Drawing.Size(126, 100);
             this.pictureBoxCarte.TabIndex = 3;
@@ -78,7 +80,7 @@ namespace PPE2
             // 
             this.labelNomCarte.AutoSize = true;
             this.labelNomCarte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNomCarte.Location = new System.Drawing.Point(365, 83);
+            this.labelNomCarte.Location = new System.Drawing.Point(230, 250);
             this.labelNomCarte.Name = "labelNomCarte";
             this.labelNomCarte.Size = new System.Drawing.Size(118, 16);
             this.labelNomCarte.TabIndex = 4;
@@ -88,7 +90,7 @@ namespace PPE2
             // buttonAjouterCarteToUser
             // 
             this.buttonAjouterCarteToUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAjouterCarteToUser.Location = new System.Drawing.Point(233, 189);
+            this.buttonAjouterCarteToUser.Location = new System.Drawing.Point(233, 360);
             this.buttonAjouterCarteToUser.Name = "buttonAjouterCarteToUser";
             this.buttonAjouterCarteToUser.Size = new System.Drawing.Size(126, 29);
             this.buttonAjouterCarteToUser.TabIndex = 5;
@@ -100,7 +102,7 @@ namespace PPE2
             // buttonRetour
             // 
             this.buttonRetour.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRetour.Location = new System.Drawing.Point(499, -2);
+            this.buttonRetour.Location = new System.Drawing.Point(467, -3);
             this.buttonRetour.Name = "buttonRetour";
             this.buttonRetour.Size = new System.Drawing.Size(91, 38);
             this.buttonRetour.TabIndex = 6;
@@ -108,11 +110,22 @@ namespace PPE2
             this.buttonRetour.UseVisualStyleBackColor = true;
             this.buttonRetour.Click += new System.EventHandler(this.buttonRetour_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 84);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 15);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Rechercher :";
+            // 
             // ModificationCollectionUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 461);
+            this.ClientSize = new System.Drawing.Size(554, 522);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonRetour);
             this.Controls.Add(this.buttonAjouterCarteToUser);
             this.Controls.Add(this.labelNomCarte);
@@ -138,5 +151,6 @@ namespace PPE2
         private System.Windows.Forms.Label labelNomCarte;
         private System.Windows.Forms.Button buttonAjouterCarteToUser;
         private System.Windows.Forms.Button buttonRetour;
+        private System.Windows.Forms.Label label1;
     }
 }

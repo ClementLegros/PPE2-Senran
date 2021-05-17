@@ -95,17 +95,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccueilAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccueilAdmin.Designer.cs">
+      <DependentUpon>AccueilAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="AccueilUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AccueilUser.Designer.cs">
       <DependentUpon>AccueilUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrateur.cs">
+    <Compile Include="adminCarte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrateur.Designer.cs">
-      <DependentUpon>Administrateur.cs</DependentUpon>
+    <Compile Include="adminCarte.Designer.cs">
+      <DependentUpon>adminCarte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminPersonnage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminPersonnage.Designer.cs">
+      <DependentUpon>adminPersonnage.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificationCollectionUtilisateur.cs">
       <SubType>Form</SubType>
@@ -140,18 +152,6 @@
     <Compile Include="formationEquipe.Designer.cs">
       <DependentUpon>formationEquipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="listeDesPersonnage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="listeDesPersonnage.Designer.cs">
-      <DependentUpon>listeDesPersonnage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ListeDesPersonnages.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ListeDesPersonnages.Designer.cs">
-      <DependentUpon>ListeDesPersonnages.cs</DependentUpon>
-    </Compile>
     <Compile Include="Personnage.cs" />
     <Compile Include="CarteDeUser.cs">
       <SubType>Form</SubType>
@@ -179,11 +179,17 @@
     <Compile Include="ResultatRecherche.Designer.cs">
       <DependentUpon>ResultatRecherche.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccueilAdmin.resx">
+      <DependentUpon>AccueilAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AccueilUser.resx">
       <DependentUpon>AccueilUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrateur.resx">
-      <DependentUpon>Administrateur.cs</DependentUpon>
+    <EmbeddedResource Include="adminCarte.resx">
+      <DependentUpon>adminCarte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminPersonnage.resx">
+      <DependentUpon>adminPersonnage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificationCollectionUtilisateur.resx">
       <DependentUpon>ModificationCollectionUtilisateur.cs</DependentUpon>
@@ -199,12 +205,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formationEquipe.resx">
       <DependentUpon>formationEquipe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="listeDesPersonnage.resx">
-      <DependentUpon>listeDesPersonnage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ListeDesPersonnages.resx">
-      <DependentUpon>ListeDesPersonnages.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CarteDeUser.resx">
       <DependentUpon>CarteDeUser.cs</DependentUpon>

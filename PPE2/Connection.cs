@@ -80,6 +80,76 @@ namespace PPE2
             return listeCarte;
         }
 
+        public static List<string> getNomEcole()
+        {
+            List<string> listDesEcoles = new List<string>();
+            MySqlCommand cmd = conn.CreateCommand();
+            String reqI = "SELECT NOM_ECOLE FROM ECOLE";
+            cmd.CommandText = reqI;
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                listDesEcoles.Add((string)rdr["NOM_ECOLE"]);
+            }
+            rdr.Close();
+            return listDesEcoles;
+        }
+
+        public static bool alterPersonnage(string basicNomPersonnage, string nomPersonnage, string nomEcole, int taille, int age, string chibiLogo)
+        {
+            MySqlCommand cmd = conn.CreateCommand();
+            string reqI = "CALL alterPersonnage('" + nomPersonnage + "','" + nomEcole + "','"+ taille+"','"+ age +"','"+ chibiLogo +"','"+ basicNomPersonnage +"')";
+            cmd.CommandText = reqI;
+            int nbMaj = cmd.ExecuteNonQuery();
+            return (nbMaj == 1);
+        }
+
+        public static bool alterCarte(int noCarte, string nomEcole, string nomPersonnage, string aptLeader, string nomCarte, string couleur, string type, string passif, int forcePhy, int puissanceOff, int def, int agilite, string ninpo, string sninpo, string logo, string carteComplete, string description, int noCarteBase)
+        {
+            MySqlCommand cmd = conn.CreateCommand();
+            string reqI = "CALL alterCarte('"+ noCarte +"','" + nomEcole + "','" + nomPersonnage + "','" + aptLeader + "','" + nomCarte + "','" + couleur + "','" + type + "','" + passif + "','" + forcePhy + "','" + puissanceOff + "','" + def + "','" + agilite + "','" + ninpo + "','" + sninpo + "','" + logo + "','" + carteComplete + "','" + description + "';'"+noCarteBase+"')";
+            cmd.CommandText = reqI;
+            int nbMaj = cmd.ExecuteNonQuery();
+            return (nbMaj == 1);
+        }
+
+        public static bool addPersonnage(string nomPersonnage, string nomEcole, int taille, int age, string chibiLogo)
+        {
+            MySqlCommand cmd = conn.CreateCommand();
+            string reqI = "CALL addPersonnage('" + nomPersonnage + "','" + nomEcole + "','" + taille + "','" + age + "','" + chibiLogo + "')";
+            cmd.CommandText = reqI;
+            int nbMaj = cmd.ExecuteNonQuery();
+            return (nbMaj == 1);
+        }
+
+        public static bool addCarte(string nomEcole, string nomPersonnage, string aptLeader, string nomCarte, string couleur, string type, string passif, int forcePhy, int puissanceOff, int def, int agilite, string ninpo, string sninpo, string logo, string carteComplete, string description)
+        {
+            MySqlCommand cmd = conn.CreateCommand();
+            string reqI = "CALL addCarte('" + nomEcole + "','" + nomPersonnage + "','" + aptLeader + "','" + nomCarte + "','" + couleur + "','" + type + "','" + passif + "','" + forcePhy + "','" + puissanceOff + "','" + def + "','" + agilite + "','" + ninpo + "','" + sninpo + "','" + logo + "','" + carteComplete + "','" + description + "')";
+            cmd.CommandText = reqI;
+            int nbMaj = cmd.ExecuteNonQuery();
+            return (nbMaj == 1);
+        }
+
+        public static bool supprimerPersonnage(string nomPersonnage)
+        {
+            MySqlCommand cmd = conn.CreateCommand();
+            string reqI = "CALL deletePersonnage('" + nomPersonnage + "')";
+            cmd.CommandText = reqI;
+            int nbMaj = cmd.ExecuteNonQuery();
+            return (nbMaj == 1);
+
+        }
+
+        public static bool supprimerCarte(int noCarte)
+        {
+            MySqlCommand cmd = conn.CreateCommand();
+            string reqI = "CALL deleteCarte('" + noCarte + "')";
+            cmd.CommandText = reqI;
+            int nbMaj = cmd.ExecuteNonQuery();
+            return (nbMaj == 1);
+        }
+
         public static List<Personnage> getPersonnage()
         {
             List<Personnage> listePersonnage = new List<Personnage>();
@@ -159,9 +229,9 @@ namespace PPE2
         }
 
         //Récupérer la liste des personnages en fonction des ordres de tri
-        public static List<Personnage> getListPersoForTeam(string cdType1, string cdCouleur1, string cdType2, string cdCouleur2, string modeDeJeux)
+        public static List<Carte> getListCarteForTeam(string cdType1, string cdCouleur1, string cdType2, string cdCouleur2, string modeDeJeux)
         {
-            List<Personnage> listPerso = new List<Personnage>();
+            List<Carte> listCarte = new List<Carte>();
 
             MySqlCommand cmd = conn.CreateCommand();
             String reqI = "CALL GetTriCarte('" + cdType1 + "', '" + cdCouleur1 + "', '" + modeDeJeux + "', '" + cdType2 + "', '" + cdCouleur2 + "')";
@@ -169,6 +239,8 @@ namespace PPE2
             MySqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
+                Carte carteRecup = new Carte((int)rdr["NO_CARTE"], (string)rdr["LOGO"], (string)rdr["NOM_PERSONNAGE"], (string)rdr["NOM_CARTE"]);
+                listCarte.Add(carteRecup);
                 //Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],
                 //(string)rdr["NOM_CARTE"],
                 //(string)rdr["LienLogoImage"]);
@@ -182,6 +254,8 @@ namespace PPE2
             {
                 while (rdr.Read())
                 {
+                    Carte carteRecup = new Carte((int)rdr["NO_CARTE"], (string)rdr["LOGO"], (string)rdr["NOM_PERSONNAGE"], (string)rdr["NOM_CARTE"]);
+                    listCarte.Add(carteRecup);
                     //Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"],
                     //(string)rdr["NOM_CARTE"],
                     //(string)rdr["LienLogoImage"]);
@@ -190,10 +264,26 @@ namespace PPE2
                 }
             }
             rdr.Close();
-            return listPerso;
+            return listCarte;
         }
 
-        
+        public static List<Carte>getTouteLesCartes()
+        {
+            List<Carte> listeCarte = new List<Carte>();
+            MySqlCommand cmd = conn.CreateCommand();
+            String reqI = "SELECT * FROM CARTE";
+            cmd.CommandText = reqI;
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                Carte carteRecup = new Carte((int)rdr["NO_CARTE"], (string)rdr["NOM_PERSONNAGE"], (string)rdr["NOM_CARTE"], (string)rdr["NOM_ECOLE"], (int)rdr["FORCE_PHYSIQUE"], (int)rdr["PUISSANCE_OFFENSIVE"], (int)rdr["DEFENSE"], (int)rdr["AGILITE"], (string)rdr["APT_LEADER"], (string)rdr["EFFET_PASSIF"], (string)rdr["NINPO"], (string)rdr["SNINPO"], (string)rdr["COULEUR"], (string)rdr["TYPE"], (string)rdr["CARTE_COMPLETE"], (string)rdr["LOGO"], (string)rdr["DESCRIPTION"]);
+                listeCarte.Add(carteRecup);
+                //Personnage personnageRecup = new Personnage((int)rdr["NO_CARTE"], (string)rdr["NOM_CARTE"], (string)rdr["NOM_ECOLE"], (int)rdr["Force_Physique"], (int)rdr["Puissance_Offensive"], (int)rdr["Defense"], (int)rdr["Agilite"], (string)rdr["EFFET_LEADER"], (string)rdr["EFFET_PASSIF"], (string)rdr["Ninja"], (string)rdr["Secret"], (string)rdr["COULEUR"], (string)rdr["TYPE"], (int)rdr["PVP_RATING"], (int)rdr["NEST_RATING"], (int)rdr["INVASION_RATING"], (string)rdr["LienCarteImage"], (string)rdr["LienLogoImage"]);
+                //listPersonnageRecherche.Add(personnageRecup);
+            }
+            rdr.Close();
+            return listeCarte;
+        }
 
         public static List<Carte> getPersonnageRecherche(string couleur, string type, string ecole)
         {
@@ -211,6 +301,22 @@ namespace PPE2
             }
             rdr.Close();
             return listeCarte;
+
+        }
+
+        public static List<string> getToutLesleaders()
+        {
+            List<string> listLeaders = new List<string>();
+            MySqlCommand cmd = conn.CreateCommand();
+            String reqI = "SELECT * FROM APT_LEADER";
+            cmd.CommandText = reqI;
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                listLeaders.Add((string)rdr["APT_LEADER"]);
+            }
+            rdr.Close();
+            return listLeaders;
 
         }
 

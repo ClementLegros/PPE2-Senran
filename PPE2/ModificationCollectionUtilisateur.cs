@@ -104,6 +104,69 @@ namespace PPE2
             pdu.Show();
         }
 
-        
+        private void buttonRecherche_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBoxRecherchePersonnage_TextChanged(object sender, EventArgs e)
+        {
+            listBoxAjouterPersonnage.Items.Clear();
+            bool found = false;
+
+            if (operation == "AJOUTER")
+            {
+                
+                foreach (Carte c in Connection.getCarteNonPossederParUser(noUser))
+                {
+                    if (textBoxRecherchePersonnage.Text == c.getPersonnage())
+                    {
+                        listBoxAjouterPersonnage.Items.Clear();
+                        listBoxAjouterPersonnage.Items.Add(c);
+                        found = true;
+                    }
+                    //else if (textBoxRecherchePersonnage.Text == c.ToString())
+                    //{
+                    //    listBoxAjouterPersonnage.Items.Clear();
+                    //    listBoxAjouterPersonnage.Items.Add(c);
+                    //    found = true;
+                    //}
+                    else
+                    {
+                        found = false;
+                    }
+                }
+                if(found != true)
+                {
+                    listBoxAjouterPersonnage.Items.AddRange(Connection.getCarteNonPossederParUser(noUser).ToArray());
+                }
+            }
+            else if (operation == "SUPPRIMER")
+            {
+                foreach (Carte c in Connection.getPersonnageDeUser(noUser))
+                {
+                    if(textBoxRecherchePersonnage.Text == c.getPersonnage())
+                    {
+                        listBoxAjouterPersonnage.Items.Clear();
+                        listBoxAjouterPersonnage.Items.Add(c);
+                        found = true;
+                    }
+                    //else if(textBoxRecherchePersonnage.Text == c.ToString())
+                    //{
+                    //    listBoxAjouterPersonnage.Items.Clear();
+                    //    listBoxAjouterPersonnage.Items.Add(c);
+                    //    found = true;
+                    //}
+                    else
+                    {
+                        found = false;
+                    }
+                }
+                if(found != true)
+                {
+                    listBoxAjouterPersonnage.Items.AddRange(Connection.getPersonnageDeUser(noUser).ToArray());
+                }
+            }
+        }
     }
 }
