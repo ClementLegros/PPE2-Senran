@@ -119,6 +119,7 @@ namespace PPE2
         private void btMenuEquip_Click(object sender, EventArgs e)
         {
             Equipe ep = new Equipe();
+            ep.idUser = this.idUser;
             ep.Show();
         }
 

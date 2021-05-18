@@ -30,25 +30,10 @@ namespace PPE2
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.pictureBox19 = new System.Windows.Forms.PictureBox();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.listBoxEquipeInvasion = new System.Windows.Forms.ListBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.listBoxEquipeNest = new System.Windows.Forms.ListBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.listBoxEquipePvp = new System.Windows.Forms.ListBox();
             this.listBoxConditionPrincipaleType = new System.Windows.Forms.ListBox();
@@ -69,23 +54,8 @@ namespace PPE2
             this.pictureBoxFormationAuto3 = new System.Windows.Forms.PictureBox();
             this.pictureBoxFormationAuto4 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormationAuto1)).BeginInit();
@@ -97,23 +67,8 @@ namespace PPE2
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.pictureBox16);
-            this.groupBox2.Controls.Add(this.pictureBox17);
-            this.groupBox2.Controls.Add(this.pictureBox18);
-            this.groupBox2.Controls.Add(this.pictureBox19);
-            this.groupBox2.Controls.Add(this.pictureBox20);
-            this.groupBox2.Controls.Add(this.pictureBox11);
-            this.groupBox2.Controls.Add(this.pictureBox12);
-            this.groupBox2.Controls.Add(this.pictureBox13);
-            this.groupBox2.Controls.Add(this.pictureBox14);
-            this.groupBox2.Controls.Add(this.pictureBox15);
-            this.groupBox2.Controls.Add(this.pictureBox10);
-            this.groupBox2.Controls.Add(this.pictureBox9);
-            this.groupBox2.Controls.Add(this.pictureBox6);
             this.groupBox2.Controls.Add(this.groupBox5);
-            this.groupBox2.Controls.Add(this.pictureBox3);
             this.groupBox2.Controls.Add(this.groupBox4);
-            this.groupBox2.Controls.Add(this.pictureBox2);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(719, 12);
@@ -122,110 +77,6 @@ namespace PPE2
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Equipe enregistrer";
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Location = new System.Drawing.Point(594, 534);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox16.TabIndex = 26;
-            this.pictureBox16.TabStop = false;
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.Location = new System.Drawing.Point(925, 455);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox17.TabIndex = 25;
-            this.pictureBox17.TabStop = false;
-            // 
-            // pictureBox18
-            // 
-            this.pictureBox18.Location = new System.Drawing.Point(594, 455);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox18.TabIndex = 22;
-            this.pictureBox18.TabStop = false;
-            // 
-            // pictureBox19
-            // 
-            this.pictureBox19.Location = new System.Drawing.Point(806, 455);
-            this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox19.TabIndex = 24;
-            this.pictureBox19.TabStop = false;
-            // 
-            // pictureBox20
-            // 
-            this.pictureBox20.Location = new System.Drawing.Point(700, 455);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox20.TabIndex = 23;
-            this.pictureBox20.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Location = new System.Drawing.Point(594, 348);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox11.TabIndex = 21;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Location = new System.Drawing.Point(925, 269);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox12.TabIndex = 20;
-            this.pictureBox12.TabStop = false;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Location = new System.Drawing.Point(594, 269);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox13.TabIndex = 17;
-            this.pictureBox13.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Location = new System.Drawing.Point(806, 269);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox14.TabIndex = 19;
-            this.pictureBox14.TabStop = false;
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Location = new System.Drawing.Point(700, 269);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox15.TabIndex = 18;
-            this.pictureBox15.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Location = new System.Drawing.Point(594, 158);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox10.TabIndex = 16;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Location = new System.Drawing.Point(925, 79);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox9.TabIndex = 15;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Location = new System.Drawing.Point(594, 79);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox6.TabIndex = 12;
-            this.pictureBox6.TabStop = false;
             // 
             // groupBox5
             // 
@@ -246,14 +97,6 @@ namespace PPE2
             this.listBoxEquipeInvasion.Size = new System.Drawing.Size(555, 148);
             this.listBoxEquipeInvasion.TabIndex = 0;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(806, 79);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.listBoxEquipeNest);
@@ -273,14 +116,6 @@ namespace PPE2
             this.listBoxEquipeNest.Size = new System.Drawing.Size(555, 100);
             this.listBoxEquipeNest.TabIndex = 0;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(700, 79);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.listBoxEquipePvp);
@@ -299,6 +134,7 @@ namespace PPE2
             this.listBoxEquipePvp.Name = "listBoxEquipePvp";
             this.listBoxEquipePvp.Size = new System.Drawing.Size(555, 164);
             this.listBoxEquipePvp.TabIndex = 0;
+            this.listBoxEquipePvp.SelectedIndexChanged += new System.EventHandler(this.listBoxEquipePvp_SelectedIndexChanged);
             // 
             // listBoxConditionPrincipaleType
             // 
@@ -440,11 +276,6 @@ namespace PPE2
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pictureBoxFormationAuto1);
-            this.groupBox1.Controls.Add(this.pictureBoxFormationAuto2);
-            this.groupBox1.Controls.Add(this.pictureBoxFormationAuto5);
-            this.groupBox1.Controls.Add(this.pictureBoxFormationAuto3);
-            this.groupBox1.Controls.Add(this.pictureBoxFormationAuto4);
             this.groupBox1.Controls.Add(this.buttonValider);
             this.groupBox1.Controls.Add(this.listBoxConditionSecondaireCouleur);
             this.groupBox1.Controls.Add(this.listBoxConditionSecondaireType);
@@ -459,7 +290,7 @@ namespace PPE2
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(701, 604);
+            this.groupBox1.Size = new System.Drawing.Size(701, 490);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Composition automatique";
@@ -467,7 +298,7 @@ namespace PPE2
             // 
             // pictureBoxFormationAuto1
             // 
-            this.pictureBoxFormationAuto1.Location = new System.Drawing.Point(280, 506);
+            this.pictureBoxFormationAuto1.Location = new System.Drawing.Point(282, 508);
             this.pictureBoxFormationAuto1.Name = "pictureBoxFormationAuto1";
             this.pictureBoxFormationAuto1.Size = new System.Drawing.Size(100, 78);
             this.pictureBoxFormationAuto1.TabIndex = 17;
@@ -475,7 +306,7 @@ namespace PPE2
             // 
             // pictureBoxFormationAuto2
             // 
-            this.pictureBoxFormationAuto2.Location = new System.Drawing.Point(138, 506);
+            this.pictureBoxFormationAuto2.Location = new System.Drawing.Point(140, 508);
             this.pictureBoxFormationAuto2.Name = "pictureBoxFormationAuto2";
             this.pictureBoxFormationAuto2.Size = new System.Drawing.Size(100, 78);
             this.pictureBoxFormationAuto2.TabIndex = 16;
@@ -483,7 +314,7 @@ namespace PPE2
             // 
             // pictureBoxFormationAuto5
             // 
-            this.pictureBoxFormationAuto5.Location = new System.Drawing.Point(562, 506);
+            this.pictureBoxFormationAuto5.Location = new System.Drawing.Point(564, 508);
             this.pictureBoxFormationAuto5.Name = "pictureBoxFormationAuto5";
             this.pictureBoxFormationAuto5.Size = new System.Drawing.Size(100, 78);
             this.pictureBoxFormationAuto5.TabIndex = 15;
@@ -491,7 +322,7 @@ namespace PPE2
             // 
             // pictureBoxFormationAuto3
             // 
-            this.pictureBoxFormationAuto3.Location = new System.Drawing.Point(427, 506);
+            this.pictureBoxFormationAuto3.Location = new System.Drawing.Point(429, 508);
             this.pictureBoxFormationAuto3.Name = "pictureBoxFormationAuto3";
             this.pictureBoxFormationAuto3.Size = new System.Drawing.Size(100, 78);
             this.pictureBoxFormationAuto3.TabIndex = 14;
@@ -499,7 +330,7 @@ namespace PPE2
             // 
             // pictureBoxFormationAuto4
             // 
-            this.pictureBoxFormationAuto4.Location = new System.Drawing.Point(10, 506);
+            this.pictureBoxFormationAuto4.Location = new System.Drawing.Point(12, 508);
             this.pictureBoxFormationAuto4.Name = "pictureBoxFormationAuto4";
             this.pictureBoxFormationAuto4.Size = new System.Drawing.Size(100, 78);
             this.pictureBoxFormationAuto4.TabIndex = 11;
@@ -509,30 +340,20 @@ namespace PPE2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1787, 680);
+            this.ClientSize = new System.Drawing.Size(1326, 819);
+            this.Controls.Add(this.pictureBoxFormationAuto1);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.pictureBoxFormationAuto2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pictureBoxFormationAuto5);
+            this.Controls.Add(this.pictureBoxFormationAuto4);
+            this.Controls.Add(this.pictureBoxFormationAuto3);
             this.Name = "Equipe";
             this.Text = "Equipe";
             this.Load += new System.EventHandler(this.Equipe_Load);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -553,21 +374,6 @@ namespace PPE2
         private System.Windows.Forms.ListBox listBoxEquipeNest;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ListBox listBoxEquipePvp;
-        private System.Windows.Forms.PictureBox pictureBox16;
-        private System.Windows.Forms.PictureBox pictureBox17;
-        private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.PictureBox pictureBox19;
-        private System.Windows.Forms.PictureBox pictureBox20;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ListBox listBoxConditionPrincipaleType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBoxNest;

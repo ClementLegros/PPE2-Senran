@@ -12,9 +12,22 @@ namespace PPE2
 {
     public partial class Equipe : Form
     {
+        public string idUser;
         public Equipe()
         {
             InitializeComponent();
+        }
+
+        private void Equipe_Load(object sender, EventArgs e)
+        {
+            List<Team> listTeam = Connection.getTeamDeUser(idUser);
+            foreach(Team t in listTeam)
+            {
+                if(t.getModeDeJeux() == "PVP")
+                {
+                    listBoxEquipePvp.Items.Add(t);
+                }
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -64,11 +77,6 @@ namespace PPE2
             }
         }
 
-        private void Equipe_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonValider_Click(object sender, EventArgs e)
         {
             string modeDeJeux = "";
@@ -99,28 +107,39 @@ namespace PPE2
             string triCouleurSecondaire = (string)listBoxConditionSecondaireCouleur.SelectedItem;
 
             List<Carte> listCarte = Connection.getListCarteForTeam(triTypePrincipale,triCouleurPrincipale,triTypeSecondaire,triCouleurSecondaire,modeDeJeux);
-            //if(listCarte.Count < 5)
-            //{
-            //    MessageBox.Show("Vous n'avez pas assez de personnage pour composer une équipe");
-            //}
-            //else
-            //{
+            if (listCarte.Count < 5)
+            {
+                MessageBox.Show("Vous n'avez pas assez de personnage pour composer une équipe");
+            }
+            else
+            {
                 pictureBoxFormationAuto1.Load(listCarte[0].getLogo());
                 pictureBoxFormationAuto2.Load(listCarte[1].getLogo());
-                //pictureBoxFormationAuto3.Load(listCarte[2].getLogo());
-                //pictureBoxFormationAuto4.Load(listCarte[3].getLogo());
-                //pictureBoxFormationAuto5.Load(listCarte[4].getLogo());
+                pictureBoxFormationAuto3.Load(listCarte[2].getLogo());
+                pictureBoxFormationAuto4.Load(listCarte[3].getLogo());
+                pictureBoxFormationAuto5.Load(listCarte[4].getLogo());
 
-            //    DialogResult dialogResult = MessageBox.Show("Voulez vous sauvegarder votre équipe ? ", "Sauvegarder", MessageBoxButtons.YesNo);
-            //    if (dialogResult == DialogResult.Yes)
-            //    {
-            //        //do something
-            //    }
-            //    else if (dialogResult == DialogResult.No)
-            //    {
-            //        //do something else
-            //    }
-            //}
+            DialogResult dialogResult = MessageBox.Show("Voulez vous sauvegarder votre équipe ? ", "Sauvegarder", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //do something
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+        }
+    }
+
+        private void listBoxEquipePvp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Team teamRecup = (Team)listBoxEquipePvp.SelectedItem;
+            List<Carte> listCarteRecup = teamRecup.getListCarte();
+            pictureBoxFormationAuto1.Load(listCarteRecup[0].getLogo());
+            pictureBoxFormationAuto2.Load(listCarteRecup[1].getLogo());
+            pictureBoxFormationAuto3.Load(listCarteRecup[2].getLogo());
+            pictureBoxFormationAuto4.Load(listCarteRecup[3].getLogo());
+            pictureBoxFormationAuto5.Load(listCarteRecup[4].getLogo());
         }
     }
 }

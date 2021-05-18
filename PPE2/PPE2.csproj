@@ -146,12 +146,6 @@
     <Compile Include="Equipe.Designer.cs">
       <DependentUpon>Equipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="formationEquipe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formationEquipe.Designer.cs">
-      <DependentUpon>formationEquipe.cs</DependentUpon>
-    </Compile>
     <Compile Include="Personnage.cs" />
     <Compile Include="CarteDeUser.cs">
       <SubType>Form</SubType>
@@ -179,6 +173,7 @@
     <Compile Include="ResultatRecherche.Designer.cs">
       <DependentUpon>ResultatRecherche.cs</DependentUpon>
     </Compile>
+    <Compile Include="Team.cs" />
     <EmbeddedResource Include="AccueilAdmin.resx">
       <DependentUpon>AccueilAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,9 +197,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Equipe.resx">
       <DependentUpon>Equipe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formationEquipe.resx">
-      <DependentUpon>formationEquipe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CarteDeUser.resx">
       <DependentUpon>CarteDeUser.cs</DependentUpon>

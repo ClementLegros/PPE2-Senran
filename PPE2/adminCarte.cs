@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web;
 
 namespace PPE2
 {
@@ -155,7 +156,14 @@ namespace PPE2
                 string carteComplete = richTextBoxAjouterCarteComplete.Text;
                 string description = richTextBoxAjouterDescription.Text;
 
-                if(Connection.addCarte(nomEcole,personnage,aptLeader,nomCarte,couleur,type,passif,forcePhy,puissanceOff,defense,vitesse,ninpo,sninpo,logo,carteComplete,description))
+                passif = passif.Replace("'", "''");
+                ninpo = ninpo.Replace("'", "''");
+                sninpo = sninpo.Replace("'", "''");
+                description = description.Replace("'", "''");
+
+
+
+                if (Connection.addCarte(nomEcole,personnage,aptLeader,nomCarte,couleur,type,passif,forcePhy,puissanceOff,defense,vitesse,ninpo,sninpo,logo,carteComplete,description))
                 {
                     listBoxCarte.Items.Clear();
                     listBoxCarte.Items.AddRange(Connection.getTouteLesCartes().ToArray());
@@ -169,6 +177,7 @@ namespace PPE2
         {
             int noCarte = Convert.ToInt32(textBoxModifNoCarte.Text);
             string nomCarte = textBoxModifNomCarte.Text;
+            string nomEcole = (string)listBoxModifNomEcole.SelectedItem;
             Personnage persoRecup = (Personnage)listBoxModifPersonnage.SelectedItem;
             string aptLeader = (string)listBoxModifAptLeader.SelectedItem;
             string couleur = textBoxModifCouleur.Text;
@@ -185,11 +194,15 @@ namespace PPE2
             string description = richTextBoxModifDescription.Text;
             Carte carteRecup = (Carte)listBoxCarte.SelectedItem;
 
-            MessageBox.Show((string)listBoxModifNomEcole.SelectedItem);
+            passif = passif.Replace("'", "''");
+            ninpo = ninpo.Replace("'", "''");
+            sninpo = sninpo.Replace("'", "''");
+            description = description.Replace("'", "''");
 
-            if(Connection.alterCarte(noCarte,(string)listBoxModifNomEcole.SelectedItem, persoRecup.getNomPersonnage(), aptLeader, nomCarte, couleur, type, passif, forcePhy, puissanceOff, defense, vitesse, ninpo, sninpo, logo, carteComplete, description, carteRecup.getNoCarte()))
+            if (Connection.alterCarte(noCarte,nomEcole, persoRecup.getNomPersonnage(), aptLeader, nomCarte, couleur, type, passif, forcePhy, puissanceOff, defense, vitesse, ninpo, sninpo, logo, carteComplete, description, carteRecup.getNoCarte()))
             {
                 aEteModifier = true;
+                listBoxCarte.Items.Remove(carteRecup);
                 listBoxCarte.Items.Clear();
                 listBoxCarte.Items.AddRange(Connection.getTouteLesCartes().ToArray());
             }

@@ -107,7 +107,7 @@ namespace PPE2
         public static bool alterCarte(int noCarte, string nomEcole, string nomPersonnage, string aptLeader, string nomCarte, string couleur, string type, string passif, int forcePhy, int puissanceOff, int def, int agilite, string ninpo, string sninpo, string logo, string carteComplete, string description, int noCarteBase)
         {
             MySqlCommand cmd = conn.CreateCommand();
-            string reqI = "CALL alterCarte('"+ noCarte +"','" + nomEcole + "','" + nomPersonnage + "','" + aptLeader + "','" + nomCarte + "','" + couleur + "','" + type + "','" + passif + "','" + forcePhy + "','" + puissanceOff + "','" + def + "','" + agilite + "','" + ninpo + "','" + sninpo + "','" + logo + "','" + carteComplete + "','" + description + "';'"+noCarteBase+"')";
+            string reqI = "CALL alterCarte('"+ noCarte +"','" + nomEcole + "','" + nomPersonnage + "','" + aptLeader + "','" + nomCarte + "','" + couleur + "','" + type + "','" + passif + "','" + forcePhy + "','" + puissanceOff + "','" + def + "','" + agilite + "','" + ninpo + "','" + sninpo + "','" + logo + "','" + carteComplete + "','" + description + "','"+noCarteBase+"')";
             cmd.CommandText = reqI;
             int nbMaj = cmd.ExecuteNonQuery();
             return (nbMaj == 1);
@@ -215,6 +215,33 @@ namespace PPE2
             rdr.Close();
             return listeCarte;
 
+        }
+
+        public static List<Team> getTeamDeUser(string idUser)
+        {
+            int nbAjout = 0;
+            List<Team> listTeam = new List<Team>();
+            List<Carte> listCarte = new List<Carte>();
+            MySqlCommand cmd = conn.CreateCommand();
+            String reqI = "CALL GetTeamDeUser('" + idUser + "')";
+            cmd.CommandText = reqI;
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                if (nbAjout % 5 == 0)
+                {
+                    Team newTeam = new Team((string)rdr["NOM_TEAM"], listCarte, (string)rdr["NOM_MODE_DE_JEUX"]);
+                    listTeam.Add(newTeam);
+                    listCarte.Clear();
+                }
+                Carte carteRecup = new Carte((int)rdr["NO_CARTE"], (string)rdr["LOGO"], (string)rdr["NOM_PERSONNAGE"], (string)rdr["NOM_CARTE"]);
+                listCarte.Add(carteRecup);
+                nbAjout++;
+                
+                    
+            }
+            rdr.Close();
+            return listTeam;
         }
 
 
